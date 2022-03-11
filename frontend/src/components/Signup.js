@@ -20,17 +20,17 @@ import { Link, useNavigate } from "react-router-dom"
 import Footer from './Footer';
 import axios from "axios"
 import { register } from "../actions/userActions"
-
+import alanBtn from '@alan-ai/alan-sdk-web';
 
 const Signup = () => {
     const responseGoogle = (res) => {
         console.log(res);
         console.log(res.profileObj);
     }
+    const navigate = useNavigate()
     const dispatch = useDispatch()
     const userLogin = useSelector((state) => state.userLogin);
     const { userInfo } = userLogin;
-    const navigate = useNavigate()
     const submitHandler = (e) => {
         e.preventDefault();
         // if (password !== confirmPassword) {

@@ -4,6 +4,7 @@
   "proxy": "http://localhost:8080",
   "private": true,
   "dependencies": {
+    "@alan-ai/alan-sdk-web": "^1.8.30",
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
     "@testing-library/jest-dom": "^5.16.2",
@@ -20,7 +21,8 @@
     "redux": "^4.1.2",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "words-to-numbers": "^1.5.1"
   },
   "scripts": {
     "start": "react-scripts start",

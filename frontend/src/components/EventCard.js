@@ -66,16 +66,16 @@ const EventCard = () => {
                     <div style={{ marginTop: "10px" }}>
                         <FacebookShareButton
                             title="Share on Facebook"
-                            // url={`http://internships.xcitedu.com/internship/${internshipDetail._id}`}
+                            url="http://www.xcitedu.com"
                             quote="Donate and help the society. Neelam's Life's mission is to give abandoned people with disabilities"
-                            hashtag={"#xcitedu"}
+                            hashtag={"#NGO"}
                         >
                             <FacebookIcon size={40} round={true} />
                         </FacebookShareButton>
                         <WhatsappShareButton
                             title="Donate and help the society. Neelam's Life's mission is to give abandoned people with disabilities"
 
-                            // url={shareUrl}
+                            url="http://www.xcitedu.com"
                             separator={" : "}
                         >
                             <WhatsappIcon size={40} round={true} />

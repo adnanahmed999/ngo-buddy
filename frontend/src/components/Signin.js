@@ -19,8 +19,12 @@ import { Link, useNavigate } from "react-router-dom"
 import { useDispatch, useSelector } from 'react-redux';
 import Footer from './Footer';
 import { login } from "../actions/userActions"
+import alanBtn from '@alan-ai/alan-sdk-web';
 
 const Signin = () => {
+
+    const navigate = useNavigate()
+
     const responseGoogle = (res) => {
         console.log(res);
         console.log(res.profileObj);
@@ -30,7 +34,6 @@ const Signin = () => {
         email: "",
         password: ""
     })
-    const navigate = useNavigate();
     const dispatch = useDispatch();
 
     const userLogin = useSelector((state) => state.userLogin);

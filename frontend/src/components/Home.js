@@ -15,7 +15,7 @@ import student from "../assets/student-removebg.png"
 import cardimg1 from "../assets/cardimg1.jpg"
 import Button from "@material-ui/core/Button";
 import Footer from "./Footer";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import HomeIcon from '@material-ui/icons/Home';
@@ -47,6 +47,7 @@ import {
   LinkedinIcon,
 } from "react-share";
 import EventCard from "./EventCard";
+import alanBtn from "@alan-ai/alan-sdk-web"
 
 // import Card from '@material-ui/core/Card';
 // import CardActions from '@material-ui/core/CardActions';
@@ -236,10 +237,12 @@ function Home({ history }) {
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
   const [value, setValue] = React.useState(2);
-
+  const navigate = useNavigate()
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+
   return (
     <React.Fragment>
       <CssBaseline />
@@ -256,13 +259,13 @@ function Home({ history }) {
                 <br />
                 <div style={{ display: "flex" }}>
                   <div style={{ marginRight: "10px" }}>
-                    <AddShoppingCartIcon style={{ marginLeft: "30px" }} fontSize="large" /><h3 style={{ textAlign: "center" }}>Rs. 150Cr.+</h3><p style={{ textAlign: "center" }}>Worth Donations</p>
+                    <AddShoppingCartIcon style={{ marginLeft: "30px", fontSize: "50px" }} /><h3 style={{ textAlign: "center" }}>Rs. 150Cr.+</h3><p style={{ textAlign: "center" }}>Worth Donations</p>
                   </div>
                   <div style={{ marginRight: "10px" }}>
-                    <SupervisorAccountIcon style={{ marginLeft: "30px" }} fontSize="large" /><h3 style={{ textAlign: "center" }}>5 Lakhs +</h3><p style={{ textAlign: "center" }}>Unique Donors</p>
+                    <SupervisorAccountIcon style={{ marginLeft: "30px", fontSize: "50px" }} /><h3 style={{ textAlign: "center" }}>5 Lakhs +</h3><p style={{ textAlign: "center" }}>Unique Donors</p>
                   </div>
                   <div style={{ marginRight: "10px" }}>
-                    <HomeIcon style={{ marginLeft: "30px" }} fontSize="large" /><h3 style={{ textAlign: "center" }}>1000+</h3><p style={{ textAlign: "center" }}>NGOs impacted</p>
+                    <HomeIcon style={{ marginLeft: "30px", fontSize: "50px" }} /><h3 style={{ textAlign: "center" }}>1000+</h3><p style={{ textAlign: "center" }}>NGOs impacted</p>
                   </div>
                 </div>
                 {/* <Typography variant="h6" gutterBottom>
@@ -376,7 +379,7 @@ function Home({ history }) {
           </div>
         </div>
         {/* Text with GIFS */}
-        <Container className={classes.cardGrid}>
+        {/* <Container className={classes.cardGrid}>
           <Grid container spacing={6}>
             <Grid item xs={12} sm={6} md={4}>
               <Card className={classes.card}>
@@ -444,7 +447,7 @@ function Home({ history }) {
               </Card>
             </Grid>
           </Grid>
-        </Container>
+        </Container> */}
         {/* Fetching courses */}
         {/* <Container className={classes.cardGrid} maxWidth="xl">
           {courses.map((course) => (
@@ -502,9 +505,10 @@ function Home({ history }) {
             </div>
           ))}
         </Container> */}
-      </main >
+
+      </main>
       <Footer />
-    </React.Fragment >
+    </React.Fragment>
   );
 }
 
