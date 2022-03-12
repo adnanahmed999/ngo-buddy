@@ -22,6 +22,8 @@ import Typography from "@material-ui/core/Typography";
 import BookIcon from "@material-ui/icons/Book";
 import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
 import CardGiftcardIcon from "@material-ui/icons/CardGiftcard";
+import ExploreIcon from "@material-ui/icons/Explore";
+import EqualizerIcon from "@material-ui/icons/Equalizer";
 // import CodeIcon from "@mui/icons-material/Code";
 // import DeveloperModeIcon from '@mui/icons-material/DeveloperMode';
 
@@ -150,6 +152,14 @@ const Header = () => {
             </>
           ) : (
             <div>
+              {/* <Link
+                to={"/signup"}
+                style={{ textDecoration: "none", color: "white" }}
+              >
+                <Button variant="outlined" color="primary">
+                  Sign Up
+                </Button>
+              </Link> */}
               &nbsp;
               <Link
                 to={"/signin"}
@@ -202,6 +212,65 @@ const Header = () => {
                 <HomeIcon />
               </ListItemIcon>
               <ListItemText primary="Home" />
+            </ListItem>
+          </List>
+        </Link>
+        <Link to={`/blogs`} style={{ textDecoration: "none", color: "black" }}>
+          <List>
+            <ListItem button key="Blogs">
+              <ListItemIcon>
+                <BookIcon />
+              </ListItemIcon>
+              <ListItemText primary="Blogs" />
+            </ListItem>
+          </List>
+        </Link>
+        <Link
+          to={`/eventsAttended`}
+          style={{ textDecoration: "none", color: "black" }}
+        >
+          <List>
+            <ListItem button key="Events Attended">
+              <ListItemIcon>
+                <VerifiedUserIcon />
+              </ListItemIcon>
+              <ListItemText primary="Events Attended" />
+            </ListItem>
+          </List>
+        </Link>
+        <Link
+          to={`/giftcard`}
+          style={{ textDecoration: "none", color: "black" }}
+        >
+          <List>
+            <ListItem button key="Gift Card">
+              <ListItemIcon>
+                <CardGiftcardIcon />
+              </ListItemIcon>
+              <ListItemText primary="Gift Card" />
+            </ListItem>
+          </List>
+        </Link>
+        <Link to={`/maps`} style={{ textDecoration: "none", color: "black" }}>
+          <List>
+            <ListItem button key="Maps">
+              <ListItemIcon>
+                <ExploreIcon />
+              </ListItemIcon>
+              <ListItemText primary="Maps" />
+            </ListItem>
+          </List>
+        </Link>
+        <Link
+          to={`/leaderboard`}
+          style={{ textDecoration: "none", color: "black" }}
+        >
+          <List>
+            <ListItem button key="LeaderBoard">
+              <ListItemIcon>
+                <EqualizerIcon />
+              </ListItemIcon>
+              <ListItemText primary="LeaderBoard" />
             </ListItem>
           </List>
         </Link>
@@ -326,7 +395,7 @@ const Header = () => {
                 <ListItemIcon>
                   <AccountCircleIcon />
                 </ListItemIcon>
-                <ListItemText primary="Nearest Organisation" />
+                <ListItemText primary="Mapppp" />
               </ListItem>
             </List>
           </Link>
