@@ -104,7 +104,7 @@ const Header = () => {
     const dispatch = useDispatch();
 
     // let history = useHistory();
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const handleLogout = () => {
         if (userInfo) {
             navigate("/");
@@ -184,7 +184,6 @@ const Header = () => {
             >
                 <div className={classes.drawerHeader}>
                     <ListItem button key="App Name">
-
                         <ListItemText primary="App Name" />
                     </ListItem>
                     <IconButton onClick={handleDrawerClose}>
@@ -202,7 +201,9 @@ const Header = () => {
                             <ListItemText primary={`Welcome, ${userInfo.data.name}`} />
                         </ListItem>
                     </List>
-                ) : ("")}
+                ) : (
+                    ""
+                )}
 
                 <Link to={"/"} style={{ textDecoration: "none", color: "black" }}>
                     <List>
@@ -380,17 +381,38 @@ const Header = () => {
                                 <ListItemText primary="My Profile" />
                             </ListItem>
                         </List>
-                    </Link>) : (
-                    <Link
-                        to={`/`}
-                        style={{ textDecoration: "none", color: "black" }}
-                    >
+                    </Link>
+                ) : (
+                    <Link to={`/`} style={{ textDecoration: "none", color: "black" }}>
                         <List>
                             <ListItem button disabled key="My Profile">
                                 <ListItemIcon>
                                     <AccountCircleIcon />
                                 </ListItemIcon>
                                 <ListItemText primary="My Profile" />
+                            </ListItem>
+                        </List>
+                    </Link>
+                )}
+                {userInfo ? (
+                    <Link to={`/map`} style={{ textDecoration: "none", color: "black" }}>
+                        <List>
+                            <ListItem button disabled={userInfo === null} key="Mapppp">
+                                <ListItemIcon>
+                                    <AccountCircleIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Mapppp" />
+                            </ListItem>
+                        </List>
+                    </Link>
+                ) : (
+                    <Link to={`/map`} style={{ textDecoration: "none", color: "black" }}>
+                        <List>
+                            <ListItem button disabled key="Mapppp">
+                                <ListItemIcon>
+                                    <AccountCircleIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Mapppp" />
                             </ListItem>
                         </List>
                     </Link>
@@ -449,19 +471,16 @@ const Header = () => {
                         </ListItem>
                     </List>
                 </Link> */}
-                {/* <Link
-                    to={"/codeCompiler"}
-                    style={{ textDecoration: "none", color: "black" }}
-                >
-                    <List>
-                        <ListItem button key="Code Compiler">
-                            <ListItemIcon>
-                                <CodeIcon />
-                            </ListItemIcon>
-                            <ListItemText primary="Code Compiler" />
-                        </ListItem>
-                    </List>
-                </Link> */}
+                {/* <Link to={"/map"} style={{ textDecoration: "none", color: "black" }}>
+          <List>
+            <ListItem button key="Nearest Organisations">
+              <ListItemIcon>
+                <AccountCircleIcon />
+              </ListItemIcon>
+              <ListItemText primary="Nearest Organisations" />
+            </ListItem>
+          </List>
+        </Link> */}
                 {/* <Link
           to={"/contactForm"}
           style={{ textDecoration: "none", color: "black" }}
@@ -502,9 +521,8 @@ const Header = () => {
           </List>
         </Link> */}
                 <Divider />
-                <Divider />
             </Drawer>
-        </div >
+        </div>
     );
 };
 
