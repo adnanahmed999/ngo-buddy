@@ -363,13 +363,13 @@ function Home({ history }) {
                   style={{ fontStyle: "bold" }}
                 >
                   <span style={{ color: "#f75f00" }}>
-                    <strong>Trusted</strong>
+                    <strong>भरोसेमंद</strong>
                   </span>{" "}
-                  and{" "}
+                  और{" "}
                   <span style={{ color: "#f75f00" }}>
-                    <strong>Transparent</strong>
+                    <strong>पारदर्शी</strong>
                   </span>{" "}
-                  Crowdfunding Platform
+                  जन-सहयोग मंच
                 </Typography>
                 <br />
                 <div style={{ display: "flex" }}>
@@ -377,22 +377,22 @@ function Home({ history }) {
                     <AddShoppingCartIcon
                       style={{ marginLeft: "30px", fontSize: "50px" }}
                     />
-                    <h3 style={{ textAlign: "center" }}>Rs. 150Cr.+</h3>
-                    <p style={{ textAlign: "center" }}>Worth Donations</p>
+                    <h3 style={{ textAlign: "center" }}>रुपये. 150 करोड़+</h3>
+                    <p style={{ textAlign: "center" }}>योग्य दान</p>
                   </div>
                   <div style={{ marginRight: "10px" }}>
                     <SupervisorAccountIcon
                       style={{ marginLeft: "30px", fontSize: "50px" }}
                     />
-                    <h3 style={{ textAlign: "center" }}>5 Lakhs +</h3>
-                    <p style={{ textAlign: "center" }}>Unique Donors</p>
+                    <h3 style={{ textAlign: "center" }}>5 लाखों +</h3>
+                    <p style={{ textAlign: "center" }}>अनोखा दाताओं</p>
                   </div>
                   <div style={{ marginRight: "10px" }}>
                     <HomeIcon
                       style={{ marginLeft: "30px", fontSize: "50px" }}
                     />
                     <h3 style={{ textAlign: "center" }}>1000+</h3>
-                    <p style={{ textAlign: "center" }}>NGOs impacted</p>
+                    <p style={{ textAlign: "center" }}>NGOs असर पड़ा</p>
                   </div>
                 </div>
                 {/* <Typography variant="h6" gutterBottom>
@@ -415,7 +415,7 @@ function Home({ history }) {
                       }}
                       variant="contained"
                     >
-                      Join Us
+                      हमसे जुड़ें
                     </Button>
                   </Link>
                 ) : (
@@ -478,12 +478,12 @@ function Home({ history }) {
               </Grid>
               <Grid item lg={8} md={8} sm={8}>
                 <h2>
-                  Join hands with SANKALP to educate thousands of poor kids and
-                  give them a bright future.
+                  हजारों गरीब बच्चों को शिक्षित करने और उन्हें एक उज्ज्वल भविष्य
+                  देने के लिए संकल्प के साथ हाथ मिलाएं।
                 </h2>
                 <p>
-                  NGO works tirelessly to give education to the poor and
-                  underpreviledged and give them the life they deserve.
+                  NGO गरीबों और वंचितों को शिक्षा देने और उन्हें वह जीवन देने के
+                  लिए अथक प्रयास करता है जिसके वे हकदार हैं।
                 </p>
                 <div
                   style={{
@@ -518,7 +518,7 @@ function Home({ history }) {
                         }}
                       >
                         {" "}
-                        Donate
+                        दान करें
                       </Button>
                     </div>
                   </Modal>
@@ -529,7 +529,7 @@ function Home({ history }) {
                   // onClick={displayRazorPay}
                   onClick={() => setOpen(true)}
                 >
-                  Donate Now
+                  अभी दान कीजिए
                 </Button>
               </Grid>
             </Grid>
@@ -576,7 +576,7 @@ function Home({ history }) {
             paddingBottom: "3%",
           }}
         >
-          <h2>Categories</h2>
+          <h2>श्रेणियाँ</h2>
           <Paper square>
             <Tabs
               value={value}
@@ -684,11 +684,9 @@ function Home({ history }) {
                   <Typography gutterBottom variant="h" component="h2">
                     Low Cost
                   </Typography>
-                  It is a long established fact that a reader will be distracted
-                  by the readable content of a page when looking at its layout.
-                  The point of using Lorem Ipsum is that it has a more-or-less
-                  normal distribution of letters, as opposed to using 'Content
-                  here, content here', making it look like readable English.
+                  यह एक लंबे समय से स्थापित तथ्य है कि एक पाठक विचलित हो जाएगा
+                  किसी पृष्ठ के लेआउट को देखते समय उसकी पठनीय सामग्री द्वारा।
+                  लोरेम इप्सम का उपयोग करने का मुद्दा यह है कि इसमें 'सामग्री' का उपयोग करने के विरोध में अक्षरों का अधिक या कम सामान्य वितरण होता है। यहाँ, सामग्री यहाँ', जिससे यह पठनीय अंग्रेजी जैसा दिखता है।
                 </CardContent>
               </Card>
             </Grid>
@@ -703,75 +701,13 @@ function Home({ history }) {
                 />
                 <CardContent className={classes.cardContent}>
                   <Typography gutterBottom variant="h" component="h2">
-                    Learning at your Finger Tips
+                  आसानी से सीखें
                   </Typography>
-                  There are many variations of passages of Lorem Ipsum
-                  available, but the majority have suffered alteration in some
-                  form, by injected humour, or randomised words which don't look
-                  even slightly believable. If you are going to use a passage of
-                  Lorem Ipsum, you need to be sure there isn't anything
-                  embarrassing hidden in the middle of text.
+                  लोरेम इप्सम के मार्ग के कई रूप उपलब्ध हैं, लेकिन बहुमत को किसी न किसी रूप में परिवर्तन का सामना करना पड़ा है, हास्य इंजेक्शन द्वारा, या यादृच्छिक शब्द जो थोड़े से भी विश्वसनीय नहीं लगते हैं. यदि आप लोरेम इप्सम के मार्ग का उपयोग करने जा रहे हैं,आपको यह सुनिश्चित करने की आवश्यकता है कि पाठ के बीच में कुछ भी शर्मनाक नहीं छिपा है।
                 </CardContent>
               </Card>
             </Grid>
           </Grid>
-        </Container> */}
-        {/* Fetching courses */}
-        {/* <Container className={classes.cardGrid} maxWidth="xl">
-          {courses.map((course) => (
-            <div>
-              <br />
-              <Typography className={classes.heading} gutterBottom>
-                {course.title}
-              </Typography>
-              <br />
-              <Carousel autoPlay={false} animation="slide" className={classes.carousel} >
-                {carouselItems(course.data)}
-              </Carousel>
-              <br />
-            </div>
-          ))}
-        </Container> */}
-        {/* <Container className={classes.cardGrid} maxWidth="xl">
-          {courses.map((course) => (
-            <div>
-              <br />
-              <Typography className={classes.heading} gutterBottom>
-                {course.title}
-              </Typography>
-              <br />
-              <Grid container spacing={8}>
-                {course.data.map((particularCourse, index) => (
-                  <Grid item key={index} xs={12} sm={6} md={3}>
-                    <Link
-                      to={`/course/${particularCourse._id}`}
-                      style={{ textDecoration: "none" }}
-                    >
-                      <Card className={classes.card}>
-                        <CardMedia
-                          className={classes.cardMedia}
-                          image={particularCourse.image}
-                          title="Image title"
-                        />
-                        <CardContent className={classes.cardContent}>
-                          <Typography gutterBottom variant="h" component="h2">
-                          //  Heading 
-                            {particularCourse.name}
-                          </Typography>
-                          <Typography>
-                            {particularCourse.description}
-                         //  This is a media card. You can use this section to
-                         //   describe the content. 
-                          </Typography>
-                        </CardContent>
-                      </Card>
-                    </Link>
-                  </Grid>
-                ))}
-              </Grid>
-              <br />
-            </div>
-          ))}
         </Container> */}
       </>
       <Footer />

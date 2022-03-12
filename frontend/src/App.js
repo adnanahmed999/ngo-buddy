@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Signin from "./components/Signin";
 import Signup from "./components/Signup";
 import Home from "./components/Home";
+import HindiHome from "./components/HindiHome";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ProfilePage from "./components/ProfilePage";
@@ -50,9 +51,10 @@ function App() {
   return (
     // <BrowserRouter>
     <>
-      <Navbar component={Navbar} style={{ marginBottom: "100px" }} />
+      // <Navbar component={Navbar} style={{ marginBottom: "100px" }} />
       <Routes>
         <Route path="/" element={<Home />} exact></Route>
+        <Route path="/hin" element={<HindiHome />} exact></Route>
         <Route path="/signin" element={<Signin />} exact></Route>
         <Route path="/signup" element={<Signup />} exact></Route>
         <Route path="/myProfile" element={<ProfilePage />} exact></Route>
