@@ -11,6 +11,11 @@ import ProfilePage from "./components/ProfilePage"
 import Chatbot from "./components/Chatbot"
 import EditProfile from "./components/EditProfile";
 import alanBtn from "@alan-ai/alan-sdk-web"
+import Blogs from "./components/Blogs"
+import ParticularBlog from "./components/ParticularBlog"
+import ParticularEvent from "./components/ParticularEvent"
+import GiftCard from "./components/GiftCard"
+import EventsAttended from "./components/EventsAttended";
 // import CoursePage from "./components/CoursePage";
 // import Assignments from "./components/Assignments";
 // import AdminLogin from "./components/AdminLogin";
@@ -44,13 +49,20 @@ function App() {
   return (
     // <BrowserRouter>
     <>
-      <Navbar component={Navbar} />
+      <Navbar component={Navbar} style={{ marginBottom: "100px" }} />
       <Routes>
-        <Route path="/" element={<Home />} exact></Route>
-        <Route path="/signin" element={<Signin />} exact></Route>
-        <Route path="/signup" element={<Signup />} exact></Route>
-        <Route path="/myProfile" element={<ProfilePage />} exact></Route>
-        <Route path="/editProfile" element={<EditProfile />} exact></Route>
+        <Route path="/" element={<Home />} exact />
+        <Route path="/signin" element={<Signin />} exact />
+        <Route path="/signup" element={<Signup />} exact />
+        <Route path="/myProfile" element={<ProfilePage />} exact />
+        <Route path="/editProfile" element={<EditProfile />} exact />
+        <Route path="/blogs" element={<Blogs />} exact />
+        <Route path="/blog/particularBlog" element={<ParticularBlog />} exact />
+        <Route path="/event/particularEvent" element={<ParticularEvent />} exact />
+        <Route path="/giftcard" element={<GiftCard />} exact />
+        <Route path="/eventsAttended" element={<EventsAttended />} exact />
+
+
         {/* <Route path="/course/:id" component={CoursePage} exact></Route>
       <Route path="/assignments/:id" component={Assignments} exact></Route>
       <Route path="/admin/login" component={AdminLogin} exact></Route>
