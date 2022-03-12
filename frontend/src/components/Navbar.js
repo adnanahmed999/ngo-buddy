@@ -19,6 +19,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import MenuIcon from "@material-ui/icons/Menu";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
+import BookIcon from '@material-ui/icons/Book';
+import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
+import CardGiftcardIcon from '@material-ui/icons/CardGiftcard';
 // import CodeIcon from "@mui/icons-material/Code";
 // import DeveloperModeIcon from '@mui/icons-material/DeveloperMode';
 
@@ -206,6 +209,45 @@ const Header = () => {
                                 <HomeIcon />
                             </ListItemIcon>
                             <ListItemText primary="Home" />
+                        </ListItem>
+                    </List>
+                </Link>
+                <Link
+                    to={`/blogs`}
+                    style={{ textDecoration: "none", color: "black" }}
+                >
+                    <List>
+                        <ListItem button key="Blogs">
+                            <ListItemIcon>
+                                <BookIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Blogs" />
+                        </ListItem>
+                    </List>
+                </Link>
+                <Link
+                    to={`/eventsAttended`}
+                    style={{ textDecoration: "none", color: "black" }}
+                >
+                    <List>
+                        <ListItem button key="Events Attended">
+                            <ListItemIcon>
+                                <VerifiedUserIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Events Attended" />
+                        </ListItem>
+                    </List>
+                </Link>
+                <Link
+                    to={`/giftcard`}
+                    style={{ textDecoration: "none", color: "black" }}
+                >
+                    <List>
+                        <ListItem button key="Gift Card">
+                            <ListItemIcon>
+                                <CardGiftcardIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Gift Card" />
                         </ListItem>
                     </List>
                 </Link>

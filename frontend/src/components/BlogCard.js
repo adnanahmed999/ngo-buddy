@@ -46,8 +46,9 @@ import {
     FacebookIcon,
     LinkedinIcon,
 } from "react-share";
+// import { Link } from 'react-router-dom'
 
-const EventCard = () => {
+const BlogCard = () => {
     return (
         <Card style={{ width: "320px", borderRadius: "30px", margin: "15px" }}>
             <img style={{ borderRadius: "30px", width: "300px", margin: "10px" }} src={cardimg1} alt="img" />
@@ -57,27 +58,11 @@ const EventCard = () => {
                 <div style={{ display: "flex" }}>
                     <Avatar>RS</Avatar> <p style={{ marginTop: "7px", marginLeft: "15px" }}>By Rajesh Sawaliwala</p>
                 </div>
-                <div style={{ display: "flex", marginLeft: "5px" }}><h3 >Rs. 9,30,000</h3> <p style={{ marginTop: "18px", marginLeft: "5px" }}>raised out of Rs. 29,00,000</p></div>
+                {/* <div style={{ display: "flex", marginLeft: "5px" }}><h3 >Rs. 9,30,000</h3> <p style={{ marginTop: "18px", marginLeft: "5px" }}>raised out of Rs. 29,00,000</p></div>
                 <LinearProgress color="secondary" style={{ margin: "10px" }} variant="determinate" value={50} />
                 <Button style={{ borderRadius: "30px", backgroundColor: "#dbf2ff", margin: "5px" }}><QueryBuilderIcon style={{ marginRight: "5px" }} />  9 days left</Button>
                 <Button style={{ borderRadius: "30px", backgroundColor: "#dbf2ff", margin: "5px" }}><SupervisorAccountIcon style={{ marginRight: "5px" }} />881 Contributors</Button>
-                <br />
-                <div style={{ display: "flex", justifyContent: "space-between" }}>
-                    <Link to="/">
-                        <Button style={{
-                            marginLeft: "55px", margin: "5px", backgroundColor: "#03ab14",
-                            // backgroundImage: "linear-gradient(to right, yellow , red)", 
-                            color: "white"
-                        }}><b>Volunteer</b></Button></Link>
-                    {/* <Button style={{ borderRadius: "30px", backgroundColor: "#dbf2ff", margin: "5px" }}><QueryBuilderIcon style={{ marginRight: "5px" }} />  9 days left</Button> */}
-                    <Link to="/">
-                        <Button style={{
-                            marginLeft: "55px", margin: "5px", backgroundColor: "#03ab14",
-                            // backgroundImage: "linear-gradient(to right, yellow , red)", 
-                            color: "white"
-                        }}><b>Donate Now</b></Button></Link>
-                    <br />
-                </div>
+                <br /> */}
                 <div style={{ display: "flex", justifyContent: "space-between" }}>
                     <div style={{ marginTop: "10px" }}>
                         <FacebookShareButton
@@ -104,12 +89,11 @@ const EventCard = () => {
                         </LinkedinShareButton>
                     </div>
                     {/* <Button style={{ borderRadius: "30px", backgroundColor: "#dbf2ff", margin: "5px" }}><QueryBuilderIcon style={{ marginRight: "5px" }} />  9 days left</Button> */}
-                    <Link to="/event/particularEvent">
-                        <Button style={{
-                            marginLeft: "55px", margin: "5px", backgroundColor: "orange",
-                            // backgroundImage: "linear-gradient(to right, yellow , red)", 
-                            color: "white"
-                        }}><b>Read More</b></Button></Link>
+                    <Link to="/blog/particularBlog"><Button style={{
+                        marginLeft: "55px", margin: "5px", backgroundColor: "orange",
+                        // backgroundImage: "linear-gradient(to right, yellow , red)", 
+                        color: "white", textDecorationLine: "none"
+                    }}><b style={{ textDecorationLine: "none" }}>Read More</b></Button></Link>
                     <br />
                 </div>
             </div>
@@ -117,4 +101,4 @@ const EventCard = () => {
     )
 }
 
-export default EventCard
+export default BlogCard
