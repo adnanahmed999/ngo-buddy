@@ -29,6 +29,8 @@ import EventsAttended from "./components/EventsAttended";
 // import CareerForm from "./components/CareerForm";
 // import ProfilePage from "./components/ProfilePage";
 
+import Dashboard from "./components/ngoDashboard/Dashboard";
+
 function App() {
   const navigate = useNavigate();
   const alanKey =
@@ -52,6 +54,7 @@ function App() {
     <>
       <Navbar component={Navbar} style={{ marginBottom: "100px" }} />
       <Routes>
+        <Route path="/dashboard" element={<Dashboard />} exact></Route>
         <Route path="/" element={<Home />} exact></Route>
         <Route path="/signin" element={<Signin />} exact></Route>
         <Route path="/signup" element={<Signup />} exact></Route>
