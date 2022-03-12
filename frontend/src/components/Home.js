@@ -15,7 +15,6 @@ import student from "../assets/student-removebg.png";
 import cardimg1 from "../assets/cardimg1.jpg";
 import Button from "@material-ui/core/Button";
 import Footer from "./Footer";
-import Modal from "@material-ui/core/Modal";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
@@ -285,25 +284,8 @@ function Home({ history }) {
   ) => {
     if (razorpay_payment_id) {
       console.log("Successful");
-      // Swal.fire({
-      //   title: `Confirm donation?`,
-      //   // text: `Vehicle Tag: ${vehicleTag}`,
-      //   icon: "warning",
-      //   showCancelButton: true,
-      //   confirmButtonColor: "#3acebf",
-      //   cancelButtonColor: "#d33",
-      //   confirmButtonText: "Yes, Confirm!",
-      //   showLoaderOnConfirm: true,
-      // }).then(async (result) => {
-      //   if (result.isConfirmed) {
       Swal.fire("Donation has been made successfully", `Amount: $}`, "success");
-      // } else {
-      //   Swal.showValidationMessage(`Request failed`);
-      //   // console.log("Success=true not returned");
-      // }
-      // });
     } else {
-      // Swal.showValidationMessage(`Request failed`);
       console.log("Unsuccessful");
     }
   };
@@ -328,7 +310,7 @@ function Home({ history }) {
       amount: data.amount,
       currency: data.currency,
       order_id: data.id,
-      name: "Full Stack Simplified",
+      name: "NGO Buddy",
       description: "Test Transaction",
       // order_id: "order_9A33XWu170gUtm", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
       handler: function (response) {
@@ -339,9 +321,9 @@ function Home({ history }) {
         );
       },
       prefill: {
-        name: "Gaurav Kumar",
+        name: "Ram",
         // name: userInfo.data.name,
-        email: "gaurav.kumar@example.com",
+        email: "ram@example.com",
         // email: userInfo.data.email,
       },
       notes: {

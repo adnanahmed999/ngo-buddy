@@ -18,8 +18,8 @@ import ParticularBlog from "./components/ParticularBlog";
 import ParticularEvent from "./components/ParticularEvent";
 import GiftCard from "./components/GiftCard";
 import EventsAttended from "./components/EventsAttended";
-import Maps from "./components/Maps"
-import LeaderBoard from "./components/LeaderBoard"
+import Maps from "./components/Maps";
+import LeaderBoard from "./components/LeaderBoard";
 // import CoursePage from "./components/CoursePage";
 // import Assignments from "./components/Assignments";
 // import AdminLogin from "./components/AdminLogin";
@@ -49,9 +49,8 @@ function App() {
         } else if (command === "home") {
           navigate("/");
         } else if (command === "maps") {
-          navigate("/maps");
-        }
-        else if (command === "blogs") {
+          navigate("/map");
+        } else if (command === "blogs") {
           navigate("/blogs");
         }
       },
@@ -60,7 +59,6 @@ function App() {
   return (
     // <BrowserRouter>
     <>
-      // <Navbar component={Navbar} style={{ marginBottom: "100px" }} />
       <Routes>
         <Route path="/dashboard" element={<Dashboard />} exact></Route>
         <Route path="/" element={<Home />} exact></Route>

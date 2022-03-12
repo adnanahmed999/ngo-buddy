@@ -1,6 +1,6 @@
 const allInterviewCandidates = [
   {
-    name: "Kartik Sharma",
+    name: "Adnan Ahmed",
     resume:
       "https://drive.google.com/file/d/1-H9MljpiOvUzUDZkLMQJS72ht2zIXzLb/view",
     points: 752,

@@ -251,13 +251,13 @@ const Header = () => {
             </ListItem>
           </List>
         </Link>
-        <Link to={`/maps`} style={{ textDecoration: "none", color: "black" }}>
+        <Link to={`/map`} style={{ textDecoration: "none", color: "black" }}>
           <List>
-            <ListItem button key="Maps">
+            <ListItem button key="Nearest Organisation">
               <ListItemIcon>
                 <ExploreIcon />
               </ListItemIcon>
-              <ListItemText primary="Maps" />
+              <ListItemText primary="Nearest Organisation" />
             </ListItem>
           </List>
         </Link>
@@ -388,29 +388,7 @@ const Header = () => {
             </List>
           </Link>
         )}
-        {userInfo ? (
-          <Link to={`/map`} style={{ textDecoration: "none", color: "black" }}>
-            <List>
-              <ListItem button disabled={userInfo === null} key="Mapppp">
-                <ListItemIcon>
-                  <AccountCircleIcon />
-                </ListItemIcon>
-                <ListItemText primary="Mapppp" />
-              </ListItem>
-            </List>
-          </Link>
-        ) : (
-          <Link to={`/map`} style={{ textDecoration: "none", color: "black" }}>
-            <List>
-              <ListItem button disabled key="Mapppp">
-                <ListItemIcon>
-                  <AccountCircleIcon />
-                </ListItemIcon>
-                <ListItemText primary="Mapppp" />
-              </ListItem>
-            </List>
-          </Link>
-        )}
+
         {/* {userInfo ? (
                     userInfo.data.isInstructor === true ? (
                         <Link

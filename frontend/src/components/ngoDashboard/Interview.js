@@ -9,7 +9,14 @@ import WhatsAppIcon from "@material-ui/icons/WhatsApp";
 import VideoCallIcon from "@material-ui/icons/VideoCall";
 import LinkIcon from "@material-ui/icons/Link";
 import { Link } from "react-router-dom";
-
+import {
+  FacebookShareButton,
+  WhatsappShareButton,
+  LinkedinShareButton,
+  WhatsappIcon,
+  FacebookIcon,
+  LinkedinIcon,
+} from "react-share";
 const customStyles = {
   rows: {
     style: {
@@ -87,9 +94,16 @@ const Interview = () => {
     {
       name: "Send MSG",
       selector: (row) => (
-        <Button style={{ backgroundColor: "#FCD2D1" }}>
-          <WhatsAppIcon />
-        </Button>
+        <WhatsappShareButton
+          title="Your interview is scheduled for 20th March, 2022. "
+          url="Please join the the interview using below meet: "
+          separator={" : "}
+        >
+          <WhatsappIcon size={40} round={true} />
+        </WhatsappShareButton>
+        // <Button style={{ backgroundColor: "#FCD2D1" }}>
+        //   <WhatsAppIcon />
+        // </Button>
       ),
     },
     {

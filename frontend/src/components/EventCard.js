@@ -47,10 +47,29 @@ import {
   FacebookIcon,
   LinkedinIcon,
 } from "react-share";
+import axios from "axios";
+import Swal from "sweetalert2";
+import { TextField } from "@material-ui/core";
 
+const loadRazorPay = async () => {
+  return new Promise((resolve) => {
+    const script = document.createElement("script");
+    script.src = "https://checkout.razorpay.com/v1/checkout.js";
+
+    // script.onload = displayRazorPay;
+    script.onload = () => {
+      resolve(true);
+    };
+    script.onerror = () => {
+      resolve(false);
+    };
+    document.body.appendChild(script);
+  });
+};
 const EventCard = (props) => {
   const [openVolunteer, setOpenVolunteer] = useState(false);
-
+  const [open, setOpen] = useState(false);
+  const [amount, setAmount] = useState(0);
   const handleOpenVolunteer = () => {
     setOpenVolunteer(true);
   };
@@ -58,8 +77,107 @@ const EventCard = (props) => {
   const handleCloseVolunteer = () => {
     setOpenVolunteer(false);
   };
+
+  const handleRazorpayResponse = async (
+    razorpay_payment_id,
+    razorpay_order_id,
+    razorpay_signature
+  ) => {
+    if (razorpay_payment_id) {
+      console.log("Successful");
+      Swal.fire("Donation has been made successfully", `Amount: $}`, "success");
+    } else {
+      console.log("Unsuccessful");
+    }
+  };
+
+  const displayRazorPay = async () => {
+    console.log("Hello");
+    const res = await loadRazorPay();
+
+    if (!res) {
+      alert("Razorpay SDK Failed. Please check your connection.");
+      return;
+    }
+
+    const { data } = await axios.post("/donation/razorpay");
+
+    // console.log(data);
+
+    const options = {
+      key: "rzp_test_vdRitP9HytsLLm", // Enter the Key ID generated from the Dashboard
+      // amount: "50000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+      // currency: "INR",
+      amount: data.amount,
+      currency: data.currency,
+      order_id: data.id,
+      name: "NGO Buddy",
+      description: "Test Transaction",
+      // order_id: "order_9A33XWu170gUtm", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+      handler: function (response) {
+        handleRazorpayResponse(
+          response.razorpay_payment_id,
+          response.razorpay_order_id,
+          response.razorpay_signature
+        );
+      },
+      prefill: {
+        name: "Ram",
+        // name: userInfo.data.name,
+        email: "ram@example.com",
+        // email: userInfo.data.email,
+      },
+      notes: {
+        address: "Razorpay Corporate Office",
+      },
+      theme: {
+        color: "#DC143C",
+      },
+    };
+    var paymentObject = new window.Razorpay(options);
+    paymentObject.open();
+  };
+
   return (
     <>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Modal
+          open={open}
+          aria-labelledby="simple-modal-title"
+          aria-describedby="simple-modal-description"
+        >
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              backgroundColor: "white",
+            }}
+          >
+            <TextField
+              id="outlined-basic"
+              label="Enter Amount"
+              variant="outlined"
+              onChange={(e) => setAmount(e.target.value)}
+            />
+            <Button
+              onClick={() => {
+                displayRazorPay();
+                setOpen(false);
+              }}
+            >
+              {" "}
+              Donate
+            </Button>
+          </div>
+        </Modal>
+      </div>
       <Card style={{ width: "320px", borderRadius: "30px", margin: "15px" }}>
         <img
           style={{ borderRadius: "30px", width: "300px", margin: "10px" }}
@@ -71,9 +189,7 @@ const EventCard = (props) => {
           <h3>{props.title}</h3>
           <div style={{ display: "flex" }}>
             <Avatar>RS</Avatar>{" "}
-            <p style={{ marginTop: "7px", marginLeft: "15px" }}>
-              By Rajesh Sawaliwala
-            </p>
+            <p style={{ marginTop: "7px", marginLeft: "15px" }}>By Ram</p>
           </div>
           <div style={{ display: "flex", marginLeft: "5px" }}>
             <h3>Rs. 9,30,000</h3>{" "}
@@ -132,6 +248,10 @@ const EventCard = (props) => {
                   // backgroundImage: "linear-gradient(to right, yellow , red)",
                   color: "white",
                 }}
+                onClick={() => {
+                  displayRazorPay();
+                  setOpen(false);
+                }}
               >
                 <b>Donate Now</b>
               </Button>
@@ -150,17 +270,11 @@ const EventCard = (props) => {
               </FacebookShareButton>
               <WhatsappShareButton
                 title="Donate and help the society. Neelam's Life's mission is to give abandoned people with disabilities"
-                url="http://www.xcitedu.com"
+                url="http://localhost:3000/event/particularEvent"
                 separator={" : "}
               >
                 <WhatsappIcon size={40} round={true} />
               </WhatsappShareButton>
-              <LinkedinShareButton
-                title="Donate and help the society. Neelam's Life's mission is to give abandoned people with disabilities"
-                summary="Donate and help the society. Neelam's Life's mission is to give abandoned people with disabilities"
-              >
-                <LinkedinIcon size={40} round={true} />
-              </LinkedinShareButton>
             </div>
             {/* <Button style={{ borderRadius: "30px", backgroundColor: "#dbf2ff", margin: "5px" }}><QueryBuilderIcon style={{ marginRight: "5px" }} />  9 days left</Button> */}
             <Link

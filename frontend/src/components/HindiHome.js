@@ -362,15 +362,15 @@
 //                   gutterBottom
 //                   style={{ fontStyle: "bold" }}
 //                 >
-//                   <span style={{ color: "#f75f00" }}>
-//                     <strong>भरोसेमंद</strong>
-//                   </span>{" "}
-//                   और{" "}
-//                   <span style={{ color: "#f75f00" }}>
-//                     <strong>पारदर्शी</strong>
-//                   </span>{" "}
-//                   जन-सहयोग मंच
-//                 </Typography>
+//   <span style={{ color: "#f75f00" }}>
+//     <strong>भरोसेमंद</strong>
+//   </span>{" "}
+//   और{" "}
+//   <span style={{ color: "#f75f00" }}>
+//     <strong>पारदर्शी</strong>
+//   </span>{" "}
+//   जन-सहयोग मंच
+// </Typography>
 //                 <br />
 //                 <div style={{ display: "flex" }}>
 //                   <div style={{ marginRight: "10px" }}>
@@ -716,7 +716,6 @@
 // }
 
 // export default Home;
-
 import React, { useEffect, useState } from "react";
 // import ReactFlow from 'react-flow-renderer';
 import Card from "@material-ui/core/Card";
@@ -767,6 +766,14 @@ import {
 } from "react-share";
 import EventCard from "./EventCard";
 import alanBtn from "@alan-ai/alan-sdk-web";
+// import Tab from '@mui/material/Tab';
+// import TabContext from '@mui/lab/TabContext';
+// import TabList from '@mui/lab/TabList';
+// import TabPanel from '@mui/lab/TabPanel';
+// import Tabs from '@material-ui/core/Tabs';
+// import Tab from '@material-ui/core/Tab';
+import Box from "@material-ui/core/Box";
+// import cardimg1 from "../assets/cardimg1.jpg"
 import axios from "axios";
 import Swal from "sweetalert2";
 import { Modal, TextField } from "@material-ui/core";
@@ -974,12 +981,18 @@ function Home({ history }) {
   const classes = useStyles();
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
-  const [value, setValue] = React.useState(2);
+  // const [value, setValue] = React.useState(2);
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const [amount, setAmount] = useState(0);
   const handleChange = (event, newValue) => {
     setValue(newValue);
+  };
+  const [value, setValue] = useState(0);
+  const [openVolunteer, setOpenVolunteer] = useState(false);
+
+  const handleOpenVolunteer = () => {
+    setOpenVolunteer(true);
   };
 
   const handleRazorpayResponse = async (
@@ -989,25 +1002,8 @@ function Home({ history }) {
   ) => {
     if (razorpay_payment_id) {
       console.log("Successful");
-      // Swal.fire({
-      //   title: `Confirm donation?`,
-      //   // text: `Vehicle Tag: ${vehicleTag}`,
-      //   icon: "warning",
-      //   showCancelButton: true,
-      //   confirmButtonColor: "#3acebf",
-      //   cancelButtonColor: "#d33",
-      //   confirmButtonText: "Yes, Confirm!",
-      //   showLoaderOnConfirm: true,
-      // }).then(async (result) => {
-      //   if (result.isConfirmed) {
       Swal.fire("Donation has been made successfully", `Amount: $}`, "success");
-      // } else {
-      //   Swal.showValidationMessage(`Request failed`);
-      //   // console.log("Success=true not returned");
-      // }
-      // });
     } else {
-      // Swal.showValidationMessage(`Request failed`);
       console.log("Unsuccessful");
     }
   };
@@ -1114,11 +1110,6 @@ function Home({ history }) {
                     <p style={{ textAlign: "center" }}>NGOs असर पड़ा</p>
                   </div>
                 </div>
-                {/* <Typography variant="h6" gutterBottom>
-                  Learn How To Build Websites & Apps Write A Code Or Start A
-                  Business
-
-                </Typography> */}
                 <br />
                 {!userInfo ? (
                   <Link
@@ -1151,14 +1142,6 @@ function Home({ history }) {
                 style={{ marginLeft: "50px" }}
               >
                 <img src={donationbox} alt="img" width="90%" />
-                {/* <Typography variant="h4" gutterBottom>
-                  Learn HTML , CSS , Web Apps & More
-                </Typography>
-                <Typography variant="subtitle1" gutterBottom>
-                  Learn How To Build Websites & Apps Write A Code Or Start A
-                  Business
-
-                </Typography> */}
               </Grid>
             </Grid>
           </Container>
@@ -1316,7 +1299,7 @@ function Home({ history }) {
                 label={
                   <>
                     <PetsIcon />
-                    जानवर
+                    जानवरों
                   </>
                 }
               />
@@ -1354,8 +1337,138 @@ function Home({ history }) {
               />
             </Tabs>
           </Paper>
+          {value === 0 ? (
+            <>
+              <br />
+              <div style={{ display: "flex", flexWrap: "wrap" }}>
+                <EventCard
+                  img={cardimg1}
+                  title="कमजोर बच्चों की मदद करने की नीलम की इच्छा..."
+                />
+                <EventCard
+                  img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmFhffduNgW4touPjcJwIwi3Hsr9pWQhF2YPQGgEKUrVC6K7X6fwDXuYDd8DP6jc5yWjY&usqp=CAU"
+                  title="जुहू बीच, मुंबई में समुद्र तट की सफाई अभियान एक बहुत बड़ी सफलता थी ..."
+                />
+                <EventCard
+                  img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSGqihl2RTKrX2V5W4d2916TUky-pWcf0MvA&usqp=CAU"
+                  title="कृपया इस मरीज की मदद करें। उसे लगभग एक साल से लक्षण हो रहे हैं ..."
+                />
+                <EventCard
+                  img="https://www.bestshowerchairs.com/wp-content/uploads/2017/08/bedridden-patient-care.jpg"
+                  title="कृपया इस मरीज की मदद करें। उसे लगभग एक साल से लक्षण हो रहे हैं ..."
+                />
+              </div>
+            </>
+          ) : (
+            ""
+          )}
+          {value === 1 ? (
+            <>
+              <br />
+              <div style={{ display: "flex", flexWrap: "wrap" }}>
+                <EventCard
+                  img="https://files.globalgiving.org/pfil/21710/ph_21710_106494.jpg?m=1493378925000"
+                  title="इंटरनेशनल एलीफेंट फाउंडेशन ने इस महान पहल का समर्थन किया..."
+                />
+                <EventCard
+                  img="https://upload.wikimedia.org/wikipedia/commons/a/ad/Dogs_1123.jpg"
+                  title="ये हैं 5 टिप्स जिनसे आप आवारा कुत्तों की सुरक्षित मदद कर सकते हैं..."
+                />
+              </div>
+            </>
+          ) : (
+            ""
+          )}
+          {value === 2 ? (
+            <>
+              <br />
+              <div style={{ display: "flex", flexWrap: "wrap" }}>
+                <EventCard
+                  img="https://englishtribuneimages.blob.core.windows.net/gallary-content/2020/6/Desk/2020_6$largeimg_1693180643.jpg"
+                  title="मुमनान नगर के गाँव को गणित पढ़ाया जाता था जिसके माध्यम से वे ..."
+                />
+                <EventCard
+                  img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ77hp9HQ9YzRmkbK1lF_oAroVrT7DpOcNoFFDdErEj9rweoxxV5FcQrv7pfLKKKukGddo&usqp=CAU"
+                  title="शिक्षण का नया इंटरैक्टिव तरीका लागू किया गया है जहां छात्र बातचीत करते हैं ..."
+                />
+                {/* <EventCard img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmFhffduNgW4touPjcJwIwi3Hsr9pWQhF2YPQGgEKUrVC6K7X6fwDXuYDd8DP6jc5yWjY&usqp=CAU" title="जुहू बीच, मुंबई में समुद्र तट की सफाई अभियान एक बहुत बड़ी सफलता थी..." /> */}
+                {/* <EventCard img={cardimg1} title="कमजोर बच्चों की मदद करने की नीलम की इच्छा ..." /> */}
+              </div>
+            </>
+          ) : (
+            ""
+          )}
+          {value === 3 ? (
+            <>
+              <br />
+              <div style={{ display: "flex", flexWrap: "wrap" }}>
+                <EventCard
+                  img="https://www.bestshowerchairs.com/wp-content/uploads/2017/08/bedridden-patient-care.jpg"
+                  title="कृपया इस मरीज की मदद करें। उसे लगभग एक साल से लक्षण हो रहे हैं ..."
+                />
+
+                <EventCard
+                  img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSGqihl2RTKrX2V5W4d2916TUky-pWcf0MvA&usqp=CAU"
+                  title="कृपया इस मरीज की मदद करें। उसे लगभग एक साल से लक्षण हो रहे हैं ..."
+                />
+              </div>
+            </>
+          ) : (
+            ""
+          )}
+          {value === 4 ? (
+            <>
+              <br />
+              <div style={{ display: "flex", flexWrap: "wrap" }}>
+                <EventCard
+                  img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSGqihl2RTKrX2V5W4d2916TUky-pWcf0MvA&usqp=CAU"
+                  title="कृपया इस मरीज की मदद करें। उसे लगभग एक साल से लक्षण हो रहे हैं..."
+                />
+
+                <EventCard
+                  img="https://www.bestshowerchairs.com/wp-content/uploads/2017/08/bedridden-patient-care.jpg"
+                  title="कृपया इस मरीज की मदद करें। उसे लगभग एक साल से लक्षण हो रहे हैं ..."
+                />
+              </div>
+            </>
+          ) : (
+            ""
+          )}
+          {value === 5 ? (
+            <>
+              <br />
+              <div style={{ display: "flex", flexWrap: "wrap" }}>
+                <EventCard
+                  img="https://www.financialexpress.com/wp-content/uploads/2021/07/goa-flood-620x400.jpg"
+                  title="पंजाब में बाढ़ ने कई लोगों को किया बेघर ..."
+                />
+              </div>
+            </>
+          ) : (
+            ""
+          )}
+
+          {/* <Box sx={{ width: '100%', typography: 'body1' }}>
+            <TabContext value={value}>
+              <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                <TabList onChange={handleChange} aria-label="lab API tabs example">
+
+                  <Tab value={1} label={<><NotificationImportantIcon />Urgent</>} />
+                  <Tab value={2} label={<><PetsIcon />Animals</>} />
+                  <Tab value={3} label={<><CastForEducationIcon />Education</>} />
+                  <Tab value={4} label={<><PersonIcon />Elderly</>} />
+                  <Tab value={5} label={<><LocalHospitalIcon />Medical</>} />
+                  <Tab value={6} label={<><HomeIcon />Disaster Relief</>} />
+                </TabList>
+              </Box>
+              <TabPanel value="1">अंक एक</TabPanel>
+              <TabPanel value="2">अंक दो</TabPanel>
+              <TabPanel value="3">अंक तीन</TabPanel>
+            </TabContext>
+          </Box> */}
+
           {/* EVENT CARDS */}
-          <br />
+          {/* <br />
           <div style={{ display: "flex", flexWrap: "wrap" }}>
             <EventCard />
             <EventCard />
@@ -1363,78 +1476,8 @@ function Home({ history }) {
             <EventCard />
             <EventCard />
             <EventCard />
-          </div>
+          </div> */}
         </div>
-        {/* Text with GIFS */}
-        {/* <Container className={classes.cardGrid}>
-          <Grid container spacing={6}>
-            <Grid item xs={12} sm={6} md={4}>
-              <Card className={classes.card}>
-                <CardMedia
-                  className={classes.cardMedia}
-                  // image={feature1}
-                  // image="https://jana-sa.com/image/about-us/e762bf4b8cbc5ee9e70e7e087f99e5c3.gif"
-                  image="https://cdn.dribbble.com/users/2514124/screenshots/5439070/girl_3.gif"
-                  title="Image title"
-                />
-                <CardContent className={classes.cardContent}>
-                  <Typography gutterBottom variant="h" component="h2">
-                    Life Time Access
-                  </Typography>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book. It has survived not only five centuries, but
-                  also the leap into electronic typesetting, remaining
-                  essentially unchanged.
-                </CardContent>
-              </Card>
-            </Grid>
-            <Grid item xs={12} sm={6} md={4}>
-              <Card className={classes.card}>
-                <CardMedia
-                  className={classes.cardMedia}
-                  // image={feature2}
-                  image="https://i.pinimg.com/originals/16/9c/11/169c11293f5c08a325ee1bbc8a0d4cb8.gif"
-                  title="Image title"
-                />
-                <CardContent className={classes.cardContent}>
-                  <Typography gutterBottom variant="h" component="h2">
-                    Low Cost
-                  </Typography>
-                  It is a long established fact that a reader will be distracted
-                  by the readable content of a page when looking at its layout.
-                  The point of using Lorem Ipsum is that it has a more-or-less
-                  normal distribution of letters, as opposed to using 'Content
-                  here, content here', making it look like readable English.
-                </CardContent>
-              </Card>
-            </Grid>
-            <Grid item xs={12} sm={6} md={4}>
-              <Card className={classes.card}>
-                <CardMedia
-                  className={classes.cardMedia}
-                  // image={feature3}
-                  // image="https://mintbook.com/assetsNew/img/university.gif"
-                  image="https://www.excelsisdeo.com/images/AlphaTestersAnimation_60.gif"
-                  title="Image title"
-                />
-                <CardContent className={classes.cardContent}>
-                  <Typography gutterBottom variant="h" component="h2">
-                    Learning at your Finger Tips
-                  </Typography>
-                  There are many variations of passages of Lorem Ipsum
-                  available, but the majority have suffered alteration in some
-                  form, by injected humour, or randomised words which don't look
-                  even slightly believable. If you are going to use a passage of
-                  Lorem Ipsum, you need to be sure there isn't anything
-                  embarrassing hidden in the middle of text.
-                </CardContent>
-              </Card>
-            </Grid>
-          </Grid>
-        </Container> */}
       </>
       <Footer />
     </React.Fragment>
