@@ -4,7 +4,7 @@ const cors = require("cors");
 const connectDB = require("./config/config");
 // const Pusher = require('pusher');
 // const generatePDF = require("./generatePdf");
-var axios = require('axios');
+var axios = require("axios");
 // Routes
 const userRoutes = require("./routes/userRoutes");
 // const courseRoutes = require("./routes/courseRoutes");
@@ -33,8 +33,7 @@ app.use(cors());
 app.use(express.json());
 
 //Port
-// const PORT = 8080 || process.env.PORT
-
+const PORT = 8080 || process.env.PORT;
 
 // Pusher - code editor
 // const pusher = new Pusher({
@@ -54,27 +53,26 @@ app.use(express.json());
 //     res.status(200).send('OK');
 // });
 
-
 // Certificate
 app.post("/getCertificate", async (req, res) => {
-    // res.send("<h1>Welcome to Full Stack Simplified</h1>");
-    // res.download("output.pdf");
-    try {
-        const { name, email, course } = req.body;
-        console.log(name, email, course);
-        generatePDF(name, email, course);
-        res.download("CertificateOfCompletion.pdf");
-        res.status(200).json({
-            success: true,
-            data: "Successfull",
-        });
-    } catch (error) {
-        console.log(error);
-        res.status(400).json({
-            success: true,
-            data: error,
-        });
-    }
+  // res.send("<h1>Welcome to Full Stack Simplified</h1>");
+  // res.download("output.pdf");
+  try {
+    const { name, email, course } = req.body;
+    console.log(name, email, course);
+    generatePDF(name, email, course);
+    res.download("CertificateOfCompletion.pdf");
+    res.status(200).json({
+      success: true,
+      data: "Successfull",
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({
+      success: true,
+      data: error,
+    });
+  }
 });
 // generatePDF("Raj Sanghavi", "rajsanghavi9@gmail.com", "HTML COURSE");
 
@@ -90,10 +88,10 @@ app.use("/user", userRoutes);
 // app.use("/career", careerFormRoute);
 // app.use("/otp", otpRoutes);
 // app.use("/instructorPayments", instructorPayments);
-app.get('/', function (req, res) {
-    res.send('StackUnderFlow backend is working')
-    console.log("StackUnderFlow backend is working");
-})
+app.get("/", function (req, res) {
+  res.send("StackUnderFlow backend is working");
+  console.log("StackUnderFlow backend is working");
+});
 // app.post('/codecompiler', async (req, res) => {
 //     const { code, language, input } = req.body;
 //     var data = JSON.stringify({
@@ -101,7 +99,6 @@ app.get('/', function (req, res) {
 //         "language": language,
 //         "input": input
 //     });
-
 
 //     var config = {
 //         method: 'post',
@@ -131,7 +128,6 @@ app.get('/', function (req, res) {
 //     "input": input
 //   });
 
-
 //   var config = {
 //     method: 'post',
 //     url: 'https://codexweb.netlify.app/.netlify/functions/enforceCode',
@@ -152,6 +148,6 @@ app.get('/', function (req, res) {
 //   //console.log(req.body);
 
 // })
-app.listen(process.env.PORT || 8080, () => {
-    console.log("Server is running on port.");
+app.listen(PORT || 8080, () => {
+  console.log(`Server is running on port ${PORT}.`);
 });
