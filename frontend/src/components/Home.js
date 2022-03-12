@@ -15,7 +15,6 @@ import student from "../assets/student-removebg.png";
 import cardimg1 from "../assets/cardimg1.jpg";
 import Button from "@material-ui/core/Button";
 import Footer from "./Footer";
-import Modal from '@material-ui/core/Modal';
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
@@ -48,19 +47,19 @@ import {
   LinkedinIcon,
 } from "react-share";
 import EventCard from "./EventCard";
-import alanBtn from "@alan-ai/alan-sdk-web"
+import alanBtn from "@alan-ai/alan-sdk-web";
 // import Tab from '@mui/material/Tab';
 // import TabContext from '@mui/lab/TabContext';
 // import TabList from '@mui/lab/TabList';
 // import TabPanel from '@mui/lab/TabPanel';
 // import Tabs from '@material-ui/core/Tabs';
 // import Tab from '@material-ui/core/Tab';
-import Box from '@material-ui/core/Box';
+import Box from "@material-ui/core/Box";
 // import cardimg1 from "../assets/cardimg1.jpg"
 import axios from "axios";
 import Swal from "sweetalert2";
-import { TextField } from "@material-ui/core";
-
+import { Modal, TextField } from "@material-ui/core";
+import Navbar from "./Navbar";
 // import Card from '@material-ui/core/Card';
 // import CardActions from '@material-ui/core/CardActions';
 // import CardContent from '@material-ui/core/CardContent';
@@ -285,25 +284,8 @@ function Home({ history }) {
   ) => {
     if (razorpay_payment_id) {
       console.log("Successful");
-      // Swal.fire({
-      //   title: `Confirm donation?`,
-      //   // text: `Vehicle Tag: ${vehicleTag}`,
-      //   icon: "warning",
-      //   showCancelButton: true,
-      //   confirmButtonColor: "#3acebf",
-      //   cancelButtonColor: "#d33",
-      //   confirmButtonText: "Yes, Confirm!",
-      //   showLoaderOnConfirm: true,
-      // }).then(async (result) => {
-      //   if (result.isConfirmed) {
       Swal.fire("Donation has been made successfully", `Amount: $}`, "success");
-      // } else {
-      //   Swal.showValidationMessage(`Request failed`);
-      //   // console.log("Success=true not returned");
-      // }
-      // });
     } else {
-      // Swal.showValidationMessage(`Request failed`);
       console.log("Unsuccessful");
     }
   };
@@ -328,7 +310,7 @@ function Home({ history }) {
       amount: data.amount,
       currency: data.currency,
       order_id: data.id,
-      name: "Full Stack Simplified",
+      name: "NGO Buddy",
       description: "Test Transaction",
       // order_id: "order_9A33XWu170gUtm", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
       handler: function (response) {
@@ -339,9 +321,9 @@ function Home({ history }) {
         );
       },
       prefill: {
-        name: "Gaurav Kumar",
+        name: "Ram",
         // name: userInfo.data.name,
-        email: "gaurav.kumar@example.com",
+        email: "ram@example.com",
         // email: userInfo.data.email,
       },
       notes: {
@@ -359,6 +341,7 @@ function Home({ history }) {
     <React.Fragment>
       <CssBaseline />
       {/* <Header /> */}
+      <Navbar />
       <>
         <div className={classes.heroContent}>
           <Container maxWidth="xl">
@@ -532,7 +515,7 @@ function Home({ history }) {
                         }}
                       >
                         {" "}
-                        De paise de
+                        Donate
                       </Button>
                     </div>
                   </Modal>
@@ -653,60 +636,112 @@ function Home({ history }) {
             <>
               <br />
               <div style={{ display: "flex", flexWrap: "wrap" }}>
-                <EventCard img={cardimg1} title="Neelam's desire to help the underpreviledged children..." />
-                <EventCard img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmFhffduNgW4touPjcJwIwi3Hsr9pWQhF2YPQGgEKUrVC6K7X6fwDXuYDd8DP6jc5yWjY&usqp=CAU" title="The Beach cleaning drive at Juhu Beach, Mumbai was a huge sucess ..." />
-                <EventCard img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSGqihl2RTKrX2V5W4d2916TUky-pWcf0MvA&usqp=CAU" title="Please help this patient. He has been having symptoms for about a year ..." />
-                <EventCard img="https://www.bestshowerchairs.com/wp-content/uploads/2017/08/bedridden-patient-care.jpg" title="Please help this patient. He has been having symptoms for about a year ..." />
-
-              </div></>) : ""
-          }
+                <EventCard
+                  img={cardimg1}
+                  title="Neelam's desire to help the underpreviledged children..."
+                />
+                <EventCard
+                  img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmFhffduNgW4touPjcJwIwi3Hsr9pWQhF2YPQGgEKUrVC6K7X6fwDXuYDd8DP6jc5yWjY&usqp=CAU"
+                  title="The Beach cleaning drive at Juhu Beach, Mumbai was a huge sucess ..."
+                />
+                <EventCard
+                  img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSGqihl2RTKrX2V5W4d2916TUky-pWcf0MvA&usqp=CAU"
+                  title="Please help this patient. He has been having symptoms for about a year ..."
+                />
+                <EventCard
+                  img="https://www.bestshowerchairs.com/wp-content/uploads/2017/08/bedridden-patient-care.jpg"
+                  title="Please help this patient. He has been having symptoms for about a year ..."
+                />
+              </div>
+            </>
+          ) : (
+            ""
+          )}
           {value === 1 ? (
             <>
               <br />
               <div style={{ display: "flex", flexWrap: "wrap" }}>
-                <EventCard img="https://files.globalgiving.org/pfil/21710/ph_21710_106494.jpg?m=1493378925000" title="The International Elephant Foundation ,ade this great initiative to ..." />
-                <EventCard img="https://upload.wikimedia.org/wikipedia/commons/a/ad/Dogs_1123.jpg" title="These are 5 tips by which you can help stray dogs safely..." />
-
-              </div></>) : ""
-          }
+                <EventCard
+                  img="https://files.globalgiving.org/pfil/21710/ph_21710_106494.jpg?m=1493378925000"
+                  title="The International Elephant Foundation ,ade this great initiative to ..."
+                />
+                <EventCard
+                  img="https://upload.wikimedia.org/wikipedia/commons/a/ad/Dogs_1123.jpg"
+                  title="These are 5 tips by which you can help stray dogs safely..."
+                />
+              </div>
+            </>
+          ) : (
+            ""
+          )}
           {value === 2 ? (
             <>
               <br />
               <div style={{ display: "flex", flexWrap: "wrap" }}>
-                <EventCard img="https://englishtribuneimages.blob.core.windows.net/gallary-content/2020/6/Desk/2020_6$largeimg_1693180643.jpg" title="Village of Mumnan Nagar were taught Maths through which they ..." />
-                <EventCard img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ77hp9HQ9YzRmkbK1lF_oAroVrT7DpOcNoFFDdErEj9rweoxxV5FcQrv7pfLKKKukGddo&usqp=CAU" title="New interactive way of teahcing has been implemented where students interact with ..." />
+                <EventCard
+                  img="https://englishtribuneimages.blob.core.windows.net/gallary-content/2020/6/Desk/2020_6$largeimg_1693180643.jpg"
+                  title="Village of Mumnan Nagar were taught Maths through which they ..."
+                />
+                <EventCard
+                  img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ77hp9HQ9YzRmkbK1lF_oAroVrT7DpOcNoFFDdErEj9rweoxxV5FcQrv7pfLKKKukGddo&usqp=CAU"
+                  title="New interactive way of teahcing has been implemented where students interact with ..."
+                />
                 {/* <EventCard img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmFhffduNgW4touPjcJwIwi3Hsr9pWQhF2YPQGgEKUrVC6K7X6fwDXuYDd8DP6jc5yWjY&usqp=CAU" title="The Beach cleaning drive at Juhu Beach, Mumbai was a huge sucess ..." /> */}
                 {/* <EventCard img={cardimg1} title="Neelam's desire to help the underpreviledged children..." /> */}
-
-              </div></>) : ""
-          }
+              </div>
+            </>
+          ) : (
+            ""
+          )}
           {value === 3 ? (
             <>
               <br />
               <div style={{ display: "flex", flexWrap: "wrap" }}>
-                <EventCard img="https://www.bestshowerchairs.com/wp-content/uploads/2017/08/bedridden-patient-care.jpg" title="Please help this patient. He has been having symptoms for about a year ..." />
+                <EventCard
+                  img="https://www.bestshowerchairs.com/wp-content/uploads/2017/08/bedridden-patient-care.jpg"
+                  title="Please help this patient. He has been having symptoms for about a year ..."
+                />
 
-                <EventCard img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSGqihl2RTKrX2V5W4d2916TUky-pWcf0MvA&usqp=CAU" title="Please help this patient. He has been having symptoms for about a year ..." />
-
-              </div></>) : ""
-          }
+                <EventCard
+                  img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSGqihl2RTKrX2V5W4d2916TUky-pWcf0MvA&usqp=CAU"
+                  title="Please help this patient. He has been having symptoms for about a year ..."
+                />
+              </div>
+            </>
+          ) : (
+            ""
+          )}
           {value === 4 ? (
             <>
               <br />
               <div style={{ display: "flex", flexWrap: "wrap" }}>
-                <EventCard img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSGqihl2RTKrX2V5W4d2916TUky-pWcf0MvA&usqp=CAU" title="Please help this patient. He has been having symptoms for about a year ..." />
+                <EventCard
+                  img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSGqihl2RTKrX2V5W4d2916TUky-pWcf0MvA&usqp=CAU"
+                  title="Please help this patient. He has been having symptoms for about a year ..."
+                />
 
-                <EventCard img="https://www.bestshowerchairs.com/wp-content/uploads/2017/08/bedridden-patient-care.jpg" title="Please help this patient. He has been having symptoms for about a year ..." />
-
-              </div></>) : ""
-          }
+                <EventCard
+                  img="https://www.bestshowerchairs.com/wp-content/uploads/2017/08/bedridden-patient-care.jpg"
+                  title="Please help this patient. He has been having symptoms for about a year ..."
+                />
+              </div>
+            </>
+          ) : (
+            ""
+          )}
           {value === 5 ? (
             <>
               <br />
               <div style={{ display: "flex", flexWrap: "wrap" }}>
-                <EventCard img="https://www.financialexpress.com/wp-content/uploads/2021/07/goa-flood-620x400.jpg" title="Floods in Punjab made many people homeless..." />
-              </div></>) : ""
-          }
+                <EventCard
+                  img="https://www.financialexpress.com/wp-content/uploads/2021/07/goa-flood-620x400.jpg"
+                  title="Floods in Punjab made many people homeless..."
+                />
+              </div>
+            </>
+          ) : (
+            ""
+          )}
 
           {/* <Box sx={{ width: '100%', typography: 'body1' }}>
             <TabContext value={value}>
