@@ -19,9 +19,11 @@ import { makeStyles } from "@material-ui/core/styles";
 import MenuIcon from "@material-ui/icons/Menu";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import BookIcon from "@material-ui/icons/Book";
-import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
-import CardGiftcardIcon from "@material-ui/icons/CardGiftcard";
+import BookIcon from '@material-ui/icons/Book';
+import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
+import CardGiftcardIcon from '@material-ui/icons/CardGiftcard';
+import ExploreIcon from '@material-ui/icons/Explore';
+import EqualizerIcon from '@material-ui/icons/Equalizer';
 // import CodeIcon from "@mui/icons-material/Code";
 // import DeveloperModeIcon from '@mui/icons-material/DeveloperMode';
 
@@ -35,122 +37,122 @@ import { useNavigate } from "react-router-dom";
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
-  appBar: {
-    transition: theme.transitions.create(["margin", "width"], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-  },
-  appBarShift: {
-    width: `calc(100% - ${drawerWidth}px)`,
-    marginLeft: drawerWidth,
-    transition: theme.transitions.create(["margin", "width"], {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  hide: {
-    display: "none",
-  },
-  drawer: {
-    width: drawerWidth,
-    flexShrink: 0,
-  },
-  drawerPaper: {
-    width: drawerWidth,
-  },
-  drawerHeader: {
-    display: "flex",
-    alignItems: "center",
-    padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
-    ...theme.mixins.toolbar,
-    justifyContent: "flex-end",
-  },
-  title: {
-    flexGrow: 1,
-  },
+    appBar: {
+        transition: theme.transitions.create(["margin", "width"], {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen,
+        }),
+    },
+    appBarShift: {
+        width: `calc(100% - ${drawerWidth}px)`,
+        marginLeft: drawerWidth,
+        transition: theme.transitions.create(["margin", "width"], {
+            easing: theme.transitions.easing.easeOut,
+            duration: theme.transitions.duration.enteringScreen,
+        }),
+    },
+    menuButton: {
+        marginRight: theme.spacing(2),
+    },
+    hide: {
+        display: "none",
+    },
+    drawer: {
+        width: drawerWidth,
+        flexShrink: 0,
+    },
+    drawerPaper: {
+        width: drawerWidth,
+    },
+    drawerHeader: {
+        display: "flex",
+        alignItems: "center",
+        padding: theme.spacing(0, 1),
+        // necessary for content to be below app bar
+        ...theme.mixins.toolbar,
+        justifyContent: "flex-end",
+    },
+    title: {
+        flexGrow: 1,
+    },
 }));
 
 const Header = () => {
-  const classes = useStyles();
-  // const [anchorEl, setAnchorEl] = React.useState(null);
-  // const open = Boolean(anchorEl);
-  const [openslider, setOpenslider] = React.useState(false);
-  const handleDrawerOpen = () => {
-    setOpenslider(true);
-  };
+    const classes = useStyles();
+    // const [anchorEl, setAnchorEl] = React.useState(null);
+    // const open = Boolean(anchorEl);
+    const [openslider, setOpenslider] = React.useState(false);
+    const handleDrawerOpen = () => {
+        setOpenslider(true);
+    };
 
-  const handleDrawerClose = () => {
-    setOpenslider(false);
-  };
+    const handleDrawerClose = () => {
+        setOpenslider(false);
+    };
 
-  // const handleMenu = (event) => {
-  //   setAnchorEl(event.currentTarget);
-  // };
+    // const handleMenu = (event) => {
+    //   setAnchorEl(event.currentTarget);
+    // };
 
-  // const handleClose = () => {
-  //   setAnchorEl(null);
-  // };
+    // const handleClose = () => {
+    //   setAnchorEl(null);
+    // };
 
-  const userLogin = useSelector((state) => state.userLogin);
-  const { userInfo } = userLogin;
+    const userLogin = useSelector((state) => state.userLogin);
+    const { userInfo } = userLogin;
 
-  const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
-  // let history = useHistory();
-  const navigate = useNavigate();
-  const handleLogout = () => {
-    if (userInfo) {
-      navigate("/");
-      dispatch(logout());
-    }
-    console.log("logout");
-  };
+    // let history = useHistory();
+    const navigate = useNavigate();
+    const handleLogout = () => {
+        if (userInfo) {
+            navigate("/");
+            dispatch(logout());
+        }
+        console.log("logout");
+    };
 
-  return (
-    <div>
-      <AppBar
-        style={{ background: "#F3FAFF" }}
-        position="fixed"
-        className={clsx(classes.appBar, {
-          [classes.appBarShift]: openslider,
-        })}
-      >
-        <Toolbar>
-          <IconButton
-            style={{ color: "black" }}
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            className={clsx(classes.menuButton, openslider && classes.hide)}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" className={classes.title} noWrap>
-            <Link to={"/"} style={{ textDecoration: "none", color: "black" }}>
-              App Name
-            </Link>
-          </Typography>
-          {userInfo ? (
-            <>
-              {/* <p style={{ color: "black" }}>Welcome,</p> */}
-              {/* <h1 style={{ color: "black", marginRight: "10px", marginLeft: "3px" }}> {userInfo.data.name}</h1> */}
-              <Button
-                variant="contained"
-                color="primary"
-                className={classes.button}
-                onClick={handleLogout}
-              >
-                Logout
-              </Button>
-            </>
-          ) : (
-            <div>
-              {/* <Link
+    return (
+        <div>
+            <AppBar
+                style={{ background: "#F3FAFF" }}
+                position="fixed"
+                className={clsx(classes.appBar, {
+                    [classes.appBarShift]: openslider,
+                })}
+            >
+                <Toolbar>
+                    <IconButton
+                        style={{ color: "black" }}
+                        aria-label="open drawer"
+                        onClick={handleDrawerOpen}
+                        edge="start"
+                        className={clsx(classes.menuButton, openslider && classes.hide)}
+                    >
+                        <MenuIcon />
+                    </IconButton>
+                    <Typography variant="h6" className={classes.title} noWrap>
+                        <Link to={"/"} style={{ textDecoration: "none", color: "black" }}>
+                            App Name
+                        </Link>
+                    </Typography>
+                    {userInfo ? (
+                        <>
+                            {/* <p style={{ color: "black" }}>Welcome,</p> */}
+                            {/* <h1 style={{ color: "black", marginRight: "10px", marginLeft: "3px" }}> {userInfo.data.name}</h1> */}
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                className={classes.button}
+                                onClick={handleLogout}
+                            >
+                                Logout
+                            </Button>
+                        </>
+                    ) : (
+                        <div>
+                            {/* <Link
                 to={"/signup"}
                 style={{ textDecoration: "none", color: "white" }}
               >
@@ -158,62 +160,127 @@ const Header = () => {
                   Sign Up
                 </Button>
               </Link> */}
-              &nbsp;
-              <Link
-                to={"/signin"}
-                style={{ textDecoration: "none", color: "white" }}
-              >
-                <Button variant="contained" color="primary">
-                  Log In
-                </Button>
-              </Link>
-            </div>
-          )}
-        </Toolbar>
-      </AppBar>
-      <Drawer
-        className={classes.drawer}
-        variant="persistent"
-        anchor="left"
-        open={openslider}
-        classes={{
-          paper: classes.drawerPaper,
-        }}
-      >
-        <div className={classes.drawerHeader}>
-          <ListItem button key="App Name">
-            <ListItemText primary="App Name" />
-          </ListItem>
-          <IconButton onClick={handleDrawerClose}>
-            <ChevronLeftIcon />
-          </IconButton>
-        </div>
-        <Divider />
+                            &nbsp;
+                            <Link
+                                to={"/signin"}
+                                style={{ textDecoration: "none", color: "white" }}
+                            >
+                                <Button variant="contained" color="primary">
+                                    Log In
+                                </Button>
+                            </Link>
+                        </div>
+                    )}
+                </Toolbar>
+            </AppBar>
+            <Drawer
+                className={classes.drawer}
+                variant="persistent"
+                anchor="left"
+                open={openslider}
+                classes={{
+                    paper: classes.drawerPaper,
+                }}
+            >
+                <div className={classes.drawerHeader}>
+                    <ListItem button key="App Name">
+                        <ListItemText primary="App Name" />
+                    </ListItem>
+                    <IconButton onClick={handleDrawerClose}>
+                        <ChevronLeftIcon />
+                    </IconButton>
+                </div>
+                <Divider />
 
-        {userInfo ? (
-          <List>
-            <ListItem button key="Nameofuser">
-              <ListItemIcon>
-                <AccountCircleIcon />
-              </ListItemIcon>
-              <ListItemText primary={`Welcome, ${userInfo.data.name}`} />
-            </ListItem>
-          </List>
-        ) : (
-          ""
-        )}
+                {userInfo ? (
+                    <List>
+                        <ListItem button key="Nameofuser">
+                            <ListItemIcon>
+                                <AccountCircleIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={`Welcome, ${userInfo.data.name}`} />
+                        </ListItem>
+                    </List>
+                ) : (
+                    ""
+                )}
 
-        <Link to={"/"} style={{ textDecoration: "none", color: "black" }}>
-          <List>
-            <ListItem button key="Home">
-              <ListItemIcon>
-                <HomeIcon />
-              </ListItemIcon>
-              <ListItemText primary="Home" />
-            </ListItem>
-          </List>
-        </Link>
-        {/* {userInfo ? (
+                <Link to={"/"} style={{ textDecoration: "none", color: "black" }}>
+                    <List>
+                        <ListItem button key="Home">
+                            <ListItemIcon>
+                                <HomeIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Home" />
+                        </ListItem>
+                    </List>
+                </Link>
+                <Link
+                    to={`/blogs`}
+                    style={{ textDecoration: "none", color: "black" }}
+                >
+                    <List>
+                        <ListItem button key="Blogs">
+                            <ListItemIcon>
+                                <BookIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Blogs" />
+                        </ListItem>
+                    </List>
+                </Link>
+                <Link
+                    to={`/eventsAttended`}
+                    style={{ textDecoration: "none", color: "black" }}
+                >
+                    <List>
+                        <ListItem button key="Events Attended">
+                            <ListItemIcon>
+                                <VerifiedUserIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Events Attended" />
+                        </ListItem>
+                    </List>
+                </Link>
+                <Link
+                    to={`/giftcard`}
+                    style={{ textDecoration: "none", color: "black" }}
+                >
+                    <List>
+                        <ListItem button key="Gift Card">
+                            <ListItemIcon>
+                                <CardGiftcardIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Gift Card" />
+                        </ListItem>
+                    </List>
+                </Link>
+                <Link
+                    to={`/maps`}
+                    style={{ textDecoration: "none", color: "black" }}
+                >
+                    <List>
+                        <ListItem button key="Maps">
+                            <ListItemIcon>
+                                <ExploreIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Maps" />
+                        </ListItem>
+                    </List>
+                </Link>
+                <Link
+                    to={`/leaderboard`}
+                    style={{ textDecoration: "none", color: "black" }}
+                >
+                    <List>
+                        <ListItem button key="LeaderBoard">
+                            <ListItemIcon>
+                                <EqualizerIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="LeaderBoard" />
+                        </ListItem>
+                    </List>
+                </Link>
+                {/* {userInfo ? (
                     userInfo.data.isInstructor === true ? (
                         <Link
                             to={`/instructorcourses/${userInfo.data._id}`}
@@ -253,7 +320,7 @@ const Header = () => {
                         </ListItem>
                     </List>
                 )} */}
-        {/* {userInfo ? (
+                {/* {userInfo ? (
                     userInfo.data.isInstructor === true ? (
                         <Link
                             to={`/instructorAssignments/${userInfo.data._id}`}
@@ -301,56 +368,56 @@ const Header = () => {
                         </ListItem>
                     </List>
                 )} */}
-        {userInfo ? (
-          <Link
-            to={`/myProfile`}
-            style={{ textDecoration: "none", color: "black" }}
-          >
-            <List>
-              <ListItem button disabled={userInfo === null} key="My Profile">
-                <ListItemIcon>
-                  <AccountCircleIcon />
-                </ListItemIcon>
-                <ListItemText primary="My Profile" />
-              </ListItem>
-            </List>
-          </Link>
-        ) : (
-          <Link to={`/`} style={{ textDecoration: "none", color: "black" }}>
-            <List>
-              <ListItem button disabled key="My Profile">
-                <ListItemIcon>
-                  <AccountCircleIcon />
-                </ListItemIcon>
-                <ListItemText primary="My Profile" />
-              </ListItem>
-            </List>
-          </Link>
-        )}
-        {userInfo ? (
-          <Link to={`/map`} style={{ textDecoration: "none", color: "black" }}>
-            <List>
-              <ListItem button disabled={userInfo === null} key="Mapppp">
-                <ListItemIcon>
-                  <AccountCircleIcon />
-                </ListItemIcon>
-                <ListItemText primary="Mapppp" />
-              </ListItem>
-            </List>
-          </Link>
-        ) : (
-          <Link to={`/map`} style={{ textDecoration: "none", color: "black" }}>
-            <List>
-              <ListItem button disabled key="Mapppp">
-                <ListItemIcon>
-                  <AccountCircleIcon />
-                </ListItemIcon>
-                <ListItemText primary="Mapppp" />
-              </ListItem>
-            </List>
-          </Link>
-        )}
-        {/* {userInfo ? (
+                {userInfo ? (
+                    <Link
+                        to={`/myProfile`}
+                        style={{ textDecoration: "none", color: "black" }}
+                    >
+                        <List>
+                            <ListItem button disabled={userInfo === null} key="My Profile">
+                                <ListItemIcon>
+                                    <AccountCircleIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="My Profile" />
+                            </ListItem>
+                        </List>
+                    </Link>
+                ) : (
+                    <Link to={`/`} style={{ textDecoration: "none", color: "black" }}>
+                        <List>
+                            <ListItem button disabled key="My Profile">
+                                <ListItemIcon>
+                                    <AccountCircleIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="My Profile" />
+                            </ListItem>
+                        </List>
+                    </Link>
+                )}
+                {userInfo ? (
+                    <Link to={`/map`} style={{ textDecoration: "none", color: "black" }}>
+                        <List>
+                            <ListItem button disabled={userInfo === null} key="Mapppp">
+                                <ListItemIcon>
+                                    <AccountCircleIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Mapppp" />
+                            </ListItem>
+                        </List>
+                    </Link>
+                ) : (
+                    <Link to={`/map`} style={{ textDecoration: "none", color: "black" }}>
+                        <List>
+                            <ListItem button disabled key="Mapppp">
+                                <ListItemIcon>
+                                    <AccountCircleIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Mapppp" />
+                            </ListItem>
+                        </List>
+                    </Link>
+                )}
+                {/* {userInfo ? (
                     userInfo.data.isInstructor === true ? (
                         <Link
                             to={`/myProfile`}
@@ -391,7 +458,7 @@ const Header = () => {
                     </List>
                 )} */}
 
-        {/* <Link
+                {/* <Link
                     to={"/codeEditor"}
                     style={{ textDecoration: "none", color: "black" }}
                 >
@@ -404,7 +471,7 @@ const Header = () => {
                         </ListItem>
                     </List>
                 </Link> */}
-        {/* <Link to={"/map"} style={{ textDecoration: "none", color: "black" }}>
+                {/* <Link to={"/map"} style={{ textDecoration: "none", color: "black" }}>
           <List>
             <ListItem button key="Nearest Organisations">
               <ListItemIcon>
@@ -414,7 +481,7 @@ const Header = () => {
             </ListItem>
           </List>
         </Link> */}
-        {/* <Link
+                {/* <Link
           to={"/contactForm"}
           style={{ textDecoration: "none", color: "black" }}
         >
@@ -427,7 +494,7 @@ const Header = () => {
             </ListItem>
           </List>
         </Link> */}
-        {/*    <Link
+                {/*    <Link
           to={"/careerForm"}
           style={{ textDecoration: "none", color: "black" }}
         >
@@ -440,7 +507,7 @@ const Header = () => {
             </ListItem>
           </List>
         </Link> */}
-        {/* <Link
+                {/* <Link
           to={"/leaderboard"}
           style={{ textDecoration: "none", color: "black" }}
         > 
@@ -453,10 +520,10 @@ const Header = () => {
             </ListItem>
           </List>
         </Link> */}
-        <Divider />
-      </Drawer>
-    </div>
-  );
+                <Divider />
+            </Drawer>
+        </div>
+    );
 };
 
 export default Header;

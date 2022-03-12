@@ -214,7 +214,7 @@ const ParticularBlog = () => {
                                 <div className="hr"></div>
                             </div>
                         </div>
-                        <div style={{ marginLeft: "20px" }} className="singleBlog-container__contentContainer-relatedNews">
+                        <div style={{ marginLeft: "20px", marginTop: "50px" }} className="singleBlog-container__contentContainer-relatedNews">
                             <span className="bxTitle">
                                 Related News
                             </span>

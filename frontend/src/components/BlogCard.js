@@ -89,7 +89,7 @@ const BlogCard = () => {
                         </LinkedinShareButton>
                     </div>
                     {/* <Button style={{ borderRadius: "30px", backgroundColor: "#dbf2ff", margin: "5px" }}><QueryBuilderIcon style={{ marginRight: "5px" }} />  9 days left</Button> */}
-                    <Link to="/blog/particularBlog"><Button style={{
+                    <Link to="/blog/particularBlog" style={{ textDecoration: "none", color: "white" }}><Button style={{
                         marginLeft: "55px", margin: "5px", backgroundColor: "orange",
                         // backgroundImage: "linear-gradient(to right, yellow , red)", 
                         color: "white", textDecorationLine: "none"
