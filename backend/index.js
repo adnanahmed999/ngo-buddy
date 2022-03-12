@@ -7,7 +7,7 @@ const connectDB = require("./config/config");
 var axios = require("axios");
 // Routes
 const userRoutes = require("./routes/userRoutes");
-// const courseRoutes = require("./routes/courseRoutes");
+const donationRoutes = require("./routes/donationRoutes");
 // const orderRoutes = require("./routes/orderRoutes");
 // const discussRoutes = require("./routes/discussRoutes");
 // const testimonialRoutes = require("./routes/testimonialRoutes");
@@ -77,7 +77,7 @@ app.post("/getCertificate", async (req, res) => {
 // generatePDF("Raj Sanghavi", "rajsanghavi9@gmail.com", "HTML COURSE");
 
 app.use("/user", userRoutes);
-// app.use("/course", courseRoutes);
+app.use("/donation", donationRoutes);
 // app.use("/order", orderRoutes);
 // app.use("/discuss", discussRoutes);
 // app.use("/testimonial", testimonialRoutes);
