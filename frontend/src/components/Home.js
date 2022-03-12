@@ -517,7 +517,7 @@ function Home({ history }) {
                         }}
                       >
                         {" "}
-                        De paise de
+                        Donate
                       </Button>
                     </div>
                   </Modal>

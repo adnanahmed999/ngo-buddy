@@ -150,14 +150,6 @@ const Header = () => {
             </>
           ) : (
             <div>
-              {/* <Link
-                to={"/signup"}
-                style={{ textDecoration: "none", color: "white" }}
-              >
-                <Button variant="outlined" color="primary">
-                  Sign Up
-                </Button>
-              </Link> */}
               &nbsp;
               <Link
                 to={"/signin"}
@@ -334,7 +326,7 @@ const Header = () => {
                 <ListItemIcon>
                   <AccountCircleIcon />
                 </ListItemIcon>
-                <ListItemText primary="Mapppp" />
+                <ListItemText primary="Nearest Organisation" />
               </ListItem>
             </List>
           </Link>
