@@ -23,30 +23,33 @@ import alanBtn from "@alan-ai/alan-sdk-web"
 // import CareerForm from "./components/CareerForm";
 // import ProfilePage from "./components/ProfilePage";
 
+import Dashboard from "./components/ngoDashboard/Dashboard";
+
 function App() {
-  const navigate = useNavigate()
-  const alanKey = "cfdac5b36d0a78de9cd6709b0a7e592e2e956eca572e1d8b807a3e2338fdd0dc/stage"
+  const navigate = useNavigate();
+  const alanKey =
+    "cfdac5b36d0a78de9cd6709b0a7e592e2e956eca572e1d8b807a3e2338fdd0dc/stage";
   useEffect(() => {
     alanBtn({
       key: alanKey,
       onCommand: ({ command }) => {
         if (command === "login") {
-          navigate("/signin")
+          navigate("/signin");
         } else if (command === "signup") {
-          navigate("/signup")
+          navigate("/signup");
         } else if (command === "home") {
-          navigate("/")
+          navigate("/");
         }
-
-      }
-    })
-  }, [])
+      },
+    });
+  }, []);
   return (
     // <BrowserRouter>
     <>
-      <Navbar component={Navbar} />
+      {/* <Navbar component={Navbar} /> */}
       <Routes>
-        <Route path="/" element={<Home />} exact></Route>
+        <Route path="/" element={<Dashboard />} exact></Route>
+        {/* <Route path="/" element={<Home />} exact></Route> */}
         <Route path="/signin" element={<Signin />} exact></Route>
         <Route path="/signup" element={<Signup />} exact></Route>
         <Route path="/myProfile" element={<ProfilePage />} exact></Route>
@@ -71,7 +74,6 @@ function App() {
       {/* <Footer /> */}
       {/* </BrowserRouter> */}
     </>
-
   );
 }
 
