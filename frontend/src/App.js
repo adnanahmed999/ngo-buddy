@@ -52,14 +52,10 @@ function App() {
   return (
     // <BrowserRouter>
     <>
-<<<<<<< HEAD
-      {/* <Navbar component={Navbar} /> */}
-=======
       <Navbar component={Navbar} style={{ marginBottom: "100px" }} />
->>>>>>> main
       <Routes>
-        <Route path="/" element={<Dashboard />} exact></Route>
-        {/* <Route path="/" element={<Home />} exact></Route> */}
+        <Route path="/dashboard" element={<Dashboard />} exact></Route>
+        <Route path="/" element={<Home />} exact></Route>
         <Route path="/signin" element={<Signin />} exact></Route>
         <Route path="/signup" element={<Signup />} exact></Route>
         <Route path="/myProfile" element={<ProfilePage />} exact></Route>
