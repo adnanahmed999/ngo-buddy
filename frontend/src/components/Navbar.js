@@ -19,6 +19,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import MenuIcon from "@material-ui/icons/Menu";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
+import BookIcon from "@material-ui/icons/Book";
+import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
+import CardGiftcardIcon from "@material-ui/icons/CardGiftcard";
 // import CodeIcon from "@mui/icons-material/Code";
 // import DeveloperModeIcon from '@mui/icons-material/DeveloperMode';
 
@@ -450,7 +453,6 @@ const Header = () => {
             </ListItem>
           </List>
         </Link> */}
-        <Divider />
         <Divider />
       </Drawer>
     </div>
