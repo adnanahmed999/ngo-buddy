@@ -1,31 +1,40 @@
-import React from 'react'
-import { Typography, Container, Grid, Box, Divider, Button } from '@material-ui/core'
-import { Instagram, Facebook, } from '@material-ui/icons'
-import { LinkedIn, Twitter, YouTube } from '@material-ui/icons'
-import { Link } from 'react-router-dom'
+import React from "react";
+import {
+  Typography,
+  Container,
+  Grid,
+  Box,
+  Divider,
+  Button,
+} from "@material-ui/core";
+import { Instagram, Facebook } from "@material-ui/icons";
+import { LinkedIn, Twitter, YouTube } from "@material-ui/icons";
+import { Link } from "react-router-dom";
 // import { Link } from '@mui/material';
 const Footer = () => {
-    const styleOfLink = {
-        fontWeight: 'bold',
-        color: "white",
-        textDecoration: 'none'
-    }
-    return (
-        <>
-            <footer>
-                <Box
-                    sx={{
-                        marginLeft: 0,
-                        marginRight: 0,
-                        marginTop: 0,
-                        marginBottom: 0,
-                        backgroundColor: "black"
-                    }}
-
-                    color="white" p={5} m={10}
-                    textAlign='center' >
-                    <Container maxWidth="lg">
-                        {/* <Grid container spacing={5}>
+  const styleOfLink = {
+    fontWeight: "bold",
+    color: "white",
+    textDecoration: "none",
+  };
+  return (
+    <>
+      <footer>
+        <Box
+          sx={{
+            marginLeft: 0,
+            marginRight: 0,
+            marginTop: 0,
+            marginBottom: 0,
+            backgroundColor: "black",
+          }}
+          color="white"
+          p={5}
+          m={10}
+          textAlign="center"
+        >
+          <Container maxWidth="lg">
+            {/* <Grid container spacing={5}>
               <Grid item xs={12} sm={3}>
                 <Box borderBottom={1} mb={1} sx={{ fontWeight: 'bold' }} >Product</Box>
                 <Box pb={0.8}><Link to='/' style={styleOfLink} color="inherit" >Internship In India</Link></Box>
@@ -76,45 +85,81 @@ const Footer = () => {
               </Grid>
 
             </Grid> */}
+          </Container>
 
-                    </Container>
+          <Box pt={3}>
+            <Divider style={{ background: "white" }} />
+            <Container maxWidth="lg">
+              <Grid container spacing={5}>
+                <Grid item xs={12} sm={6}>
+                  <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+                    Follow Us
+                  </Typography>
+                  <a
+                    style={{ color: "white", textDecoration: "none" }}
+                    href="https://www.instagram.com/xcitedu/"
+                  >
+                    <Button style={{ color: "white" }}>
+                      <Instagram />
+                    </Button>
+                  </a>
+                  {/* <Link href="https://www.instagram.com/xcitedu/?utm_medium=copy_link"><Button style={{ color: "aqua" }}><Instagram /></Button></Link> */}
 
-                    <Box pt={3} >
-                        <Divider style={{ background: 'white' }} />
-                        <container maxWidth="lg">
+                  <a
+                    style={{ color: "white", textDecoration: "none" }}
+                    href="https://www.facebook.com/XcitEducation-104917554849541/"
+                  >
+                    <Button style={{ color: "white" }}>
+                      <Facebook />
+                    </Button>
+                  </a>
+                  <a
+                    style={{ color: "white", textDecoration: "none" }}
+                    href="https://www.linkedin.com/company/xcitedu-software-solutions-private-limited/"
+                  >
+                    <Button style={{ color: "white" }} color="inherit">
+                      <LinkedIn />
+                    </Button>
+                  </a>
+                  <a
+                    style={{ color: "white", textDecoration: "none" }}
+                    href="https://twitter.com/EducationXcit?t=5JqUq909PyjD31mHu1LT4A&s=09"
+                  >
+                    <Button style={{ color: "white" }} color="inherit">
+                      <Twitter />
+                    </Button>
+                  </a>
+                  <a
+                    style={{ color: "white", textDecoration: "none" }}
+                    href="https://www.youtube.com/channel/UCVJpyRAbVPIoB2LwOgNzv6w"
+                  >
+                    <Button style={{ color: "white" }} color="inherit">
+                      <YouTube />
+                    </Button>
+                  </a>
+                </Grid>
 
-                            <Grid container spacing={5}>
+                <Grid
+                  item
+                  xs={12}
+                  sm={6}
+                  bgcolor="secondary"
+                  textAlign="center"
+                >
+                  <Typography variant="h6" align="center">
+                    ©Copyright 2022 AppName
+                  </Typography>
+                </Grid>
+              </Grid>
+            </Container>
+          </Box>
+        </Box>
+      </footer>
+    </>
+  );
+};
 
-                                <Grid item xs={12} sm={6}>
-
-                                    <Typography variant='h6' sx={{ fontWeight: 'bold' }}>Follow Us</Typography>
-                                    <a style={{ color: "white", textDecoration: "none" }} href="https://www.instagram.com/xcitedu/"><Button style={{ color: "white" }}><Instagram /></Button></a>
-                                    {/* <Link href="https://www.instagram.com/xcitedu/?utm_medium=copy_link"><Button style={{ color: "aqua" }}><Instagram /></Button></Link> */}
-
-                                    <a style={{ color: "white", textDecoration: "none" }} href="https://www.facebook.com/XcitEducation-104917554849541/"><Button style={{ color: "white" }} ><Facebook /></Button></a>
-                                    <a style={{ color: "white", textDecoration: "none" }} href="https://www.linkedin.com/company/xcitedu-software-solutions-private-limited/"><Button style={{ color: "white" }} color='inherit' ><LinkedIn /></Button></a>
-                                    <a style={{ color: "white", textDecoration: "none" }} href="https://twitter.com/EducationXcit?t=5JqUq909PyjD31mHu1LT4A&s=09"><Button style={{ color: "white" }} color='inherit' ><Twitter /></Button></a>
-                                    <a style={{ color: "white", textDecoration: "none" }} href="https://www.youtube.com/channel/UCVJpyRAbVPIoB2LwOgNzv6w"><Button style={{ color: "white" }} color='inherit' ><YouTube /></Button></a>
-
-                                </Grid>
-
-                                <Grid item xs={12} sm={6} bgcolor='secondary' textAlign='center'  >
-                                    <Typography variant='h6' align='center' >©Copyright 2022 AppName</Typography>
-                                </Grid>
-
-
-                            </Grid>
-
-                        </container>
-                    </Box>
-                </Box>
-            </footer>
-        </>
-    )
-}
-
-export default Footer
-
+export default Footer;
 
 // import React from "react";
 // import Typography from "@material-ui/core/Typography";
