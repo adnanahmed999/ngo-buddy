@@ -22,8 +22,9 @@ import {
 } from "react-share";
 import QueryBuilderIcon from '@material-ui/icons/QueryBuilder';
 import Button from "@material-ui/core/Button";
-
+import ReactFlow from 'react-flow-renderer';
 import Footer from './Footer'
+
 const ParticularEvent = () => {
     // like handler
     const [likeBlog, setLikeBlog] = useState(false);
@@ -32,6 +33,25 @@ const ParticularEvent = () => {
     const [loaderHide, setLoaderHide] = useState(false);
     // comment 
     const [comment, setComment] = useState("");
+    const elements = [
+        {
+            id: "1",
+            type: "input",
+            data: { label: "Report at 10am" },
+            position: { x: 50, y: 100 }
+        },
+        { id: "2", data: { label: "Spread Awareness" }, position: { x: 150, y: 150 } },
+        { id: "3", data: { label: "Distribute books" }, position: { x: 250, y: 200 } },
+        { id: "4", data: { label: "Teaching" }, position: { x: 350, y: 250 } },
+        { id: "5", data: { label: "Distributing Chocolates" }, position: { x: 450, y: 300 } },
+
+        { id: "e1-2", source: "1", target: "2", type: "straight", animated: true },
+        { id: "e1-3", source: "2", target: "3", type: "straight", animated: true },
+        { id: "e1-4", source: "3", target: "4", type: "straight", animated: true },
+        { id: "e1-5", source: "4", target: "5", type: "straight", animated: true },
+        // { id: "e1-6", source: "1", target: "6", type: "step" }
+    ];
+
     // const dispatch = useDispatch();
     // const { id } = useParams();
     // const userInfo = useSelector((state) => state.userLogin.userInfo);
@@ -165,14 +185,14 @@ const ParticularEvent = () => {
                                 </span>
                                 <br />
                                 <div style={{ display: "flex" }}>
-                                    <Link to="/">
+                                    <Link to="/" style={{ textDecoration: "none" }}>
                                         <Button style={{
                                             marginLeft: "55px", margin: "5px", backgroundColor: "#03ab14",
                                             // backgroundImage: "linear-gradient(to right, yellow , red)", 
                                             color: "white"
                                         }}><b>Volunteer</b></Button></Link>
                                     {/* <Button style={{ borderRadius: "30px", backgroundColor: "#dbf2ff", margin: "5px" }}><QueryBuilderIcon style={{ marginRight: "5px" }} />  9 days left</Button> */}
-                                    <Link to="/">
+                                    <Link to="/" style={{ textDecoration: "none" }}>
                                         <Button style={{
                                             marginLeft: "55px", margin: "5px", backgroundColor: "#03ab14",
                                             // backgroundImage: "linear-gradient(to right, yellow , red)", 
@@ -191,6 +211,7 @@ const ParticularEvent = () => {
                                 <h3 className='media-description'>This is the short description of the Event.</h3>
                                 <span className="media-body">This is the body of the event. This is the body of the event. This is the body of the event. This is the body of the event. This is the body of the event. This is the body of the event. This is the body of the event. This is the body of the event. This is the body of the event. This is the body of the event. This is the body of the event. This is the body of the event. </span>
                                 <h1>Event Details :</h1>
+
                                 Date: 22 Feb 2022<br />
                                 Time: 5:00pm<br />
                                 No. of Volunteers needed: 20 volunteers<br />
@@ -218,6 +239,9 @@ const ParticularEvent = () => {
                                         }}><b>Donate Now</b></Button></Link>
                                     <br />
                                 </div>
+                                <h1>Event Timeline</h1>
+                                <ReactFlow elements={elements} style={{ width: "100%", height: "500px" }} />;
+
                                 <div className="extra-section">
                                     <div>
 
@@ -266,7 +290,7 @@ const ParticularEvent = () => {
                                 <div className="hr"></div>
                             </div>
                         </div>
-                        <div style={{ marginLeft: "20px" }} className="singleBlog-container__contentContainer-relatedNews">
+                        <div style={{ marginLeft: "20px", marginTop: "50px" }} className="singleBlog-container__contentContainer-relatedNews">
                             <span className="bxTitle">
                                 Related News
                             </span>

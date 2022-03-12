@@ -22,6 +22,8 @@ import Typography from "@material-ui/core/Typography";
 import BookIcon from '@material-ui/icons/Book';
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
 import CardGiftcardIcon from '@material-ui/icons/CardGiftcard';
+import ExploreIcon from '@material-ui/icons/Explore';
+import EqualizerIcon from '@material-ui/icons/Equalizer';
 // import CodeIcon from "@mui/icons-material/Code";
 // import DeveloperModeIcon from '@mui/icons-material/DeveloperMode';
 
@@ -248,6 +250,32 @@ const Header = () => {
                                 <CardGiftcardIcon />
                             </ListItemIcon>
                             <ListItemText primary="Gift Card" />
+                        </ListItem>
+                    </List>
+                </Link>
+                <Link
+                    to={`/maps`}
+                    style={{ textDecoration: "none", color: "black" }}
+                >
+                    <List>
+                        <ListItem button key="Maps">
+                            <ListItemIcon>
+                                <ExploreIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Maps" />
+                        </ListItem>
+                    </List>
+                </Link>
+                <Link
+                    to={`/leaderboard`}
+                    style={{ textDecoration: "none", color: "black" }}
+                >
+                    <List>
+                        <ListItem button key="LeaderBoard">
+                            <ListItemIcon>
+                                <EqualizerIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="LeaderBoard" />
                         </ListItem>
                     </List>
                 </Link>

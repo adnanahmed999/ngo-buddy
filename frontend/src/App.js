@@ -16,6 +16,8 @@ import ParticularBlog from "./components/ParticularBlog"
 import ParticularEvent from "./components/ParticularEvent"
 import GiftCard from "./components/GiftCard"
 import EventsAttended from "./components/EventsAttended";
+import Maps from "./components/Maps"
+import LeaderBoard from "./components/LeaderBoard"
 // import CoursePage from "./components/CoursePage";
 // import Assignments from "./components/Assignments";
 // import AdminLogin from "./components/AdminLogin";
@@ -61,7 +63,8 @@ function App() {
         <Route path="/event/particularEvent" element={<ParticularEvent />} exact />
         <Route path="/giftcard" element={<GiftCard />} exact />
         <Route path="/eventsAttended" element={<EventsAttended />} exact />
-
+        <Route path="/maps" element={<Maps />} exact />
+        <Route path="/leaderboard" element={<LeaderBoard />} exact />
 
         {/* <Route path="/course/:id" component={CoursePage} exact></Route>
       <Route path="/assignments/:id" component={Assignments} exact></Route>
