@@ -97,7 +97,7 @@ const EventCard = (props) => {
 
     if (!res) {
       alert("Razorpay SDK Failed. Please check your connection.");
-      return;
+      return null;
     }
 
     const { data } = await axios.post("/donation/razorpay");
@@ -134,50 +134,9 @@ const EventCard = (props) => {
         color: "#DC143C",
       },
     };
-    var paymentObject = new window.Razorpay(options);
-    paymentObject.open();
   };
-
   return (
     <>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <Modal
-          open={open}
-          aria-labelledby="simple-modal-title"
-          aria-describedby="simple-modal-description"
-        >
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              backgroundColor: "white",
-            }}
-          >
-            <TextField
-              id="outlined-basic"
-              label="Enter Amount"
-              variant="outlined"
-              onChange={(e) => setAmount(e.target.value)}
-            />
-            <Button
-              onClick={() => {
-                displayRazorPay();
-                setOpen(false);
-              }}
-            >
-              {" "}
-              Donate
-            </Button>
-          </div>
-        </Modal>
-      </div>
       <Card style={{ width: "320px", borderRadius: "30px", margin: "15px" }}>
         <img
           style={{ borderRadius: "30px", width: "300px", margin: "10px" }}
@@ -189,7 +148,9 @@ const EventCard = (props) => {
           <h3>{props.title}</h3>
           <div style={{ display: "flex" }}>
             <Avatar>RS</Avatar>{" "}
-            <p style={{ marginTop: "7px", marginLeft: "15px" }}>By Ram</p>
+            <p style={{ marginTop: "7px", marginLeft: "15px" }}>
+              By Rajesh Sawaliwala
+            </p>
           </div>
           <div style={{ display: "flex", marginLeft: "5px" }}>
             <h3>Rs. 9,30,000</h3>{" "}
@@ -227,12 +188,14 @@ const EventCard = (props) => {
             <Link to="/" style={{ textDecoration: "none", color: "white" }}>
               <Button
                 onClick={handleOpenVolunteer}
+                color="primary"
+                variant="contained"
                 style={{
                   marginLeft: "55px",
                   margin: "5px",
-                  backgroundColor: "#03ab14",
                   // backgroundImage: "linear-gradient(to right, yellow , red)",
                   color: "white",
+                  borderRadius: "999px",
                 }}
               >
                 <b>Volunteer</b>
@@ -247,10 +210,7 @@ const EventCard = (props) => {
                   backgroundColor: "#03ab14",
                   // backgroundImage: "linear-gradient(to right, yellow , red)",
                   color: "white",
-                }}
-                onClick={() => {
-                  displayRazorPay();
-                  setOpen(false);
+                  borderRadius: "999px",
                 }}
               >
                 <b>Donate Now</b>
@@ -270,7 +230,7 @@ const EventCard = (props) => {
               </FacebookShareButton>
               <WhatsappShareButton
                 title="Donate and help the society. Neelam's Life's mission is to give abandoned people with disabilities"
-                url="http://localhost:3000/event/particularEvent"
+                url="http://www.xcitedu.com"
                 separator={" : "}
               >
                 <WhatsappIcon size={40} round={true} />
@@ -284,10 +244,12 @@ const EventCard = (props) => {
               <Button
                 style={{
                   marginLeft: "55px",
+                  marginTop: "5px",
                   margin: "5px",
                   backgroundColor: "orange",
                   // backgroundImage: "linear-gradient(to right, yellow , red)",
                   color: "white",
+                  borderRadius: "999px",
                 }}
               >
                 <b>Read More</b>

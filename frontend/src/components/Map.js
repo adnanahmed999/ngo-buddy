@@ -7,7 +7,6 @@ import oldAge from "../assets/oldAge.png";
 import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 
-import osm from "./osm-providers";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
@@ -60,28 +59,6 @@ function Map() {
             <MenuItem value={4}>Old Age Home</MenuItem>
             <MenuItem value={5}>Orphanage Home</MenuItem>
           </Select>
-          {/* <Button className={classes.button} onClick={handleOpen}>
-        Open the select
-      </Button> */}
-          {/* <FormControl>
-        <InputLabel id="demo-controlled-open-select-label">Age</InputLabel>
-        <Select
-          labelId="demo-controlled-open-select-label"
-          id="demo-controlled-open-select"
-          open={open}
-          onClose={handleClose}
-          onOpen={handleOpen}
-          value={age}
-          onChange={handleChange}
-        >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
-        </Select>
-      </FormControl> */}
           <br />
           <br />
           {value === 1 ? (
@@ -106,13 +83,20 @@ function Map() {
                   style={{ width: "200px", borderRadius: "30px" }}
                 />
                 <br />
-                <Button
-                  style={{ margin: "10px" }}
-                  variant="contained"
-                  color="primary"
+                <a
+                  href="https://www.google.com"
+                  style={{ textDecoration: "none" }}
                 >
-                  View on Map
-                </Button>
+                  <Button
+                    style={{ margin: "10px" }}
+                    variant="contained"
+                    color="primary"
+                  >
+                    View on Map
+                  </Button>
+                </a>
+                {/* <Link to="/" style={{ textDecoration: "none" }}>
+                <Button style={{ margin: "10px" }} variant="contained" color="primary">View on Map</Button></Link> */}
               </div>
             </Card>
           ) : (
@@ -137,13 +121,19 @@ function Map() {
                   style={{ width: "200px", borderRadius: "30px" }}
                 />
                 <br />
-                <Button
-                  style={{ margin: "10px" }}
-                  variant="contained"
-                  color="primary"
+                <a
+                  href="https://www.google.com/maps/place/HBT+Medical+College+And+Dr.+R+N+Cooper+Municipal+General+Hospital/@19.1077678,72.8362055,15z/data=!4m2!3m1!1s0x0:0x58a16a1b79fc82f0?sa=X&ved=2ahUKEwjjsJ3-o8L2AhV3lFYBHb4oDjgQ_BJ6BAgSEAU"
+                  target="_blank"
+                  style={{ textDecoration: "none" }}
                 >
-                  View on Map
-                </Button>
+                  <Button
+                    style={{ margin: "10px" }}
+                    variant="contained"
+                    color="primary"
+                  >
+                    View on Map
+                  </Button>
+                </a>
               </div>
             </Card>
           ) : (
@@ -172,9 +162,6 @@ function Map() {
                   style={{ margin: "10px" }}
                   variant="contained"
                   color="primary"
-                  onClick={() => {
-                    console.log("Clicked");
-                  }}
                 >
                   View on Map
                 </Button>

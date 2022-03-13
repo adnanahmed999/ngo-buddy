@@ -20,17 +20,7 @@ import GiftCard from "./components/GiftCard";
 import EventsAttended from "./components/EventsAttended";
 import Maps from "./components/Maps";
 import LeaderBoard from "./components/LeaderBoard";
-// import CoursePage from "./components/CoursePage";
-// import Assignments from "./components/Assignments";
-// import AdminLogin from "./components/AdminLogin";
-// import AdminDashboard from "./components/AdminDashboard";
-// import MyCoursesUser from "./components/MyCoursesUser";
-// import ContactForm from "./components/ContactUs";
-// import MyCoursesInstr from "./components/MyCoursesInstr";
-// import CreateCourse from "./components/CreateCourse";
-// import CreateChapter from "./components/CreateChapter";
-// import CareerForm from "./components/CareerForm";
-// import ProfilePage from "./components/ProfilePage";
+import InfluencersLeaderboard from "./components/InfluencersLeaderboard";
 
 import Dashboard from "./components/ngoDashboard/Dashboard";
 import Speech from "./components/Speech";
@@ -81,6 +71,11 @@ function App() {
         <Route path="/maps" element={<Maps />} exact />
         <Route path="/leaderboard" element={<LeaderBoard />} exact />
         <Route path="/speech" element={<Speech />} exact />
+        <Route
+          path="/influencersleaderboard"
+          element={<InfluencersLeaderboard />}
+          exact
+        />
 
         {/* <Route path="/course/:id" component={CoursePage} exact></Route>
       <Route path="/assignments/:id" component={Assignments} exact></Route>
@@ -98,7 +93,7 @@ function App() {
       <Route path="/createCourse" component={CreateCourse} exact></Route>
       <Route path="/createChapter/:id" component={CreateChapter} exact></Route> */}
       </Routes>
-      {/* <Chatbot /> */}
+      <Chatbot />
       {/* <Footer /> */}
       {/* </BrowserRouter> */}
     </>
