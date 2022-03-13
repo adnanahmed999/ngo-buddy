@@ -5,9 +5,11 @@ const connectDB = require("./config/config");
 // const Pusher = require('pusher');
 const generatePDF = require("./generatePdf");
 var axios = require("axios");
+
 // Routes
 const userRoutes = require("./routes/userRoutes");
 const donationRoutes = require("./routes/donationRoutes");
+
 // const orderRoutes = require("./routes/orderRoutes");
 // const discussRoutes = require("./routes/discussRoutes");
 // const testimonialRoutes = require("./routes/testimonialRoutes");
@@ -148,6 +150,30 @@ app.get("/", function (req, res) {
 //   //console.log(req.body);
 
 // })
-app.listen(PORT || 8080, () => {
+const server = app.listen(8080, () => {
   console.log(`Server is running on port ${PORT}.`);
+});
+
+const io = require("socket.io")(server);
+
+const users = {};
+
+io.on("connection", (socket) => {
+  console.log(socket.id)
+  socket.on("new-user", (name) => {
+    console.log("new user")
+    users[socket.id] = name;
+    socket.broadcast.emit("user-connected", name);
+  });
+  socket.on("send-chat-message", (message) => {
+    console.log("Message recieved")
+    socket.broadcast.emit("chat-message", {
+      name: message.sender,
+      message: message.message,
+    });
+  });
+  socket.on("disconnect", () => {
+    socket.broadcast.emit("user-disconnected", users[socket.id]);
+    delete users[socket.id];
+  });
 });

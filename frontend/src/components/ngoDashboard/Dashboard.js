@@ -15,10 +15,13 @@ import DonationsRecieved from "./DonationsRecieved";
 import DonationsRequested from "./DonationsRequested";
 import RegisterEvent from "./RegisterEvent";
 import DiscussionForum from "./DiscussionForum";
+import OngoingEvents from "./OngoingEvents";
+import Inventory from "./Inventory";
+import VideoCall from "../videoCall/VideoCall";
 // import
 import "./Dashboard.css";
 import "../../App.css";
-import CanvasJSReact from './canvasjs.react';
+import CanvasJSReact from "./canvasjs.react";
 var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
@@ -33,94 +36,98 @@ function Dashboard() {
     exportEnabled: true,
     animationEnabled: true,
     title: {
-      text: "Event Donations"
+      text: "Event Donations",
     },
-    data: [{
-      type: "pie",
-      startAngle: 75,
-      toolTipContent: "<b>{label}</b>: {y}%",
-      showInLegend: "true",
-      legendText: "{label}",
-      indexLabelFontSize: 16,
-      indexLabel: "{label} - {y}%",
-      dataPoints: [
-        { y: 18, label: "Beach Cleaning" },
-        { y: 49, label: "Blood Donation" },
-        { y: 9, label: "River Rejuvenation" },
-        { y: 5, label: "Teach for India" },
-        { y: 19, label: "Blanket Donation" }
-      ]
-    }]
-  }
+    data: [
+      {
+        type: "pie",
+        startAngle: 75,
+        toolTipContent: "<b>{label}</b>: {y}%",
+        showInLegend: "true",
+        legendText: "{label}",
+        indexLabelFontSize: 16,
+        indexLabel: "{label} - {y}%",
+        dataPoints: [
+          { y: 18, label: "Beach Cleaning" },
+          { y: 49, label: "Blood Donation" },
+          { y: 9, label: "River Rejuvenation" },
+          { y: 5, label: "Teach for India" },
+          { y: 19, label: "Blanket Donation" },
+        ],
+      },
+    ],
+  };
   const options = {
     animationEnabled: true,
     title: {
-      text: "Funding vs Donation"
+      text: "Funding vs Donation",
     },
     axisY: {
-      title: "Funding"
+      title: "Funding",
     },
     toolTip: {
-      shared: true
+      shared: true,
     },
-    data: [{
-      type: "spline",
-      name: "2019",
-      showInLegend: true,
-      dataPoints: [
-        { y: 155, label: "Jan" },
-        { y: 150, label: "Feb" },
-        { y: 152, label: "Mar" },
-        { y: 148, label: "Apr" },
-        { y: 142, label: "May" },
-        { y: 150, label: "Jun" },
-        { y: 146, label: "Jul" },
-        { y: 149, label: "Aug" },
-        { y: 153, label: "Sept" },
-        { y: 158, label: "Oct" },
-        { y: 154, label: "Nov" },
-        { y: 150, label: "Dec" }
-      ]
-    },
-    {
-      type: "spline",
-      name: "2020",
-      showInLegend: true,
-      dataPoints: [
-        { y: 172, label: "Jan" },
-        { y: 173, label: "Feb" },
-        { y: 175, label: "Mar" },
-        { y: 172, label: "Apr" },
-        { y: 162, label: "May" },
-        { y: 165, label: "Jun" },
-        { y: 172, label: "Jul" },
-        { y: 168, label: "Aug" },
-        { y: 175, label: "Sept" },
-        { y: 170, label: "Oct" },
-        { y: 165, label: "Nov" },
-        { y: 169, label: "Dec" }
-      ]
-    },
-    {
-      type: "spline",
-      name: "2021",
-      showInLegend: true,
-      dataPoints: [
-        { y: 132, label: "Jan" },
-        { y: 133, label: "Feb" },
-        { y: 135, label: "Mar" },
-        { y: 142, label: "Apr" },
-        { y: 172, label: "May" },
-        { y: 115, label: "Jun" },
-        { y: 132, label: "Jul" },
-        { y: 148, label: "Aug" },
-        { y: 125, label: "Sept" },
-        { y: 130, label: "Oct" },
-        { y: 165, label: "Nov" },
-        { y: 139, label: "Dec" }
-      ]
-    }]
-  }
+    data: [
+      {
+        type: "spline",
+        name: "2019",
+        showInLegend: true,
+        dataPoints: [
+          { y: 155, label: "Jan" },
+          { y: 150, label: "Feb" },
+          { y: 152, label: "Mar" },
+          { y: 148, label: "Apr" },
+          { y: 142, label: "May" },
+          { y: 150, label: "Jun" },
+          { y: 146, label: "Jul" },
+          { y: 149, label: "Aug" },
+          { y: 153, label: "Sept" },
+          { y: 158, label: "Oct" },
+          { y: 154, label: "Nov" },
+          { y: 150, label: "Dec" },
+        ],
+      },
+      {
+        type: "spline",
+        name: "2020",
+        showInLegend: true,
+        dataPoints: [
+          { y: 172, label: "Jan" },
+          { y: 173, label: "Feb" },
+          { y: 175, label: "Mar" },
+          { y: 172, label: "Apr" },
+          { y: 162, label: "May" },
+          { y: 165, label: "Jun" },
+          { y: 172, label: "Jul" },
+          { y: 168, label: "Aug" },
+          { y: 175, label: "Sept" },
+          { y: 170, label: "Oct" },
+          { y: 165, label: "Nov" },
+          { y: 169, label: "Dec" },
+        ],
+      },
+      {
+        type: "spline",
+        name: "2021",
+        showInLegend: true,
+        dataPoints: [
+          { y: 132, label: "Jan" },
+          { y: 133, label: "Feb" },
+          { y: 135, label: "Mar" },
+          { y: 142, label: "Apr" },
+          { y: 172, label: "May" },
+          { y: 115, label: "Jun" },
+          { y: 132, label: "Jul" },
+          { y: 148, label: "Aug" },
+          { y: 125, label: "Sept" },
+          { y: 130, label: "Oct" },
+          { y: 165, label: "Nov" },
+          { y: 139, label: "Dec" },
+        ],
+      },
+    ],
+  };
   const [open, setOpen] = useState(false);
   const [mode, setMode] = useState("dashboard");
   const classes = useStyles();
@@ -138,13 +145,13 @@ function Dashboard() {
             </h4>
           </Button>
         </ListItem>
-        <ListItem>
+        {/* <ListItem>
           <Button onClick={() => setMode("schools")}>
             <h4>
               <i className="fa fa-play-circle"></i> School
             </h4>
           </Button>
-        </ListItem>
+        </ListItem> */}
         <ListItem>
           <Button onClick={() => setMode("EventReg")}>
             <h4>
@@ -177,6 +184,20 @@ function Dashboard() {
           <Button onClick={() => setMode("discussionForum")}>
             <h4>
               <i className="fa fa-play-circle"></i> Discussion Forum
+            </h4>
+          </Button>
+        </ListItem>
+        <ListItem>
+          <Button onClick={() => setMode("ongoingEvent")}>
+            <h4>
+              <i className="fa fa-play-circle"></i> Ongoing Event
+            </h4>
+          </Button>
+        </ListItem>
+        <ListItem>
+          <Button onClick={() => setMode("inventory")}>
+            <h4>
+              <i className="fa fa-play-circle"></i> Inventory Data
             </h4>
           </Button>
         </ListItem>
@@ -250,11 +271,20 @@ function Dashboard() {
                 </Card>
               </Grid>
             </Grid>
-            <div style={{ margin: "20px", flexWrap: "nowrap", display: "flex", justifyContent: "space-around" }}>
+            <div
+              style={{
+                margin: "20px",
+                flexWrap: "nowrap",
+                display: "flex",
+                justifyContent: "space-around",
+              }}
+            >
               <div style={{ width: "500px" }}>
-                <CanvasJSChart options={options}
-                /* onRef={ref => this.chart = ref} */
-                /></div>
+                <CanvasJSChart
+                  options={options}
+                  /* onRef={ref => this.chart = ref} */
+                />
+              </div>
               <div style={{ width: "500px" }}>
                 <CanvasJSChart options={pieoptions} />
               </div>
@@ -267,6 +297,8 @@ function Dashboard() {
         {mode === "donationsRecieved" && <DonationsRecieved />}
         {mode === "donationsRequested" && <DonationsRequested />}
         {mode === "discussionForum" && <DiscussionForum />}
+        {mode === "ongoingEvent" && <OngoingEvents />}
+        {mode === "inventory" && <Inventory />}
       </div>
     </>
   );

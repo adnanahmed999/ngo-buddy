@@ -8,10 +8,13 @@ import Card from "@material-ui/core/Card";
 import { makeStyles } from "@material-ui/core/styles";
 import GroupIcon from "@material-ui/icons/Group";
 import AccountBalanceIcon from "@material-ui/icons/AccountBalance";
+import LocalHotelIcon from "@material-ui/icons/LocalHotel";
 import ComputerIcon from "@material-ui/icons/Computer";
 import Schools from "./Schools";
 import "./Dashboard.css";
-import "../App.css";
+import "../../App.css";
+
+import NgoList from "./NgoList";
 
 const useStyles = makeStyles({
   paper: {
@@ -19,7 +22,7 @@ const useStyles = makeStyles({
   },
 });
 
-function Dashboard() {
+function OrganizationDashboard() {
   const [open, setOpen] = useState(false);
   const [mode, setMode] = useState("dashboard");
   const classes = useStyles();
@@ -38,9 +41,9 @@ function Dashboard() {
           </Button>
         </ListItem>
         <ListItem>
-          <Button onClick={() => setMode("schools")}>
+          <Button onClick={() => setMode("ngo")}>
             <h4>
-              <i className="fa fa-play-circle"></i> School
+              <i className="fa fa-play-circle"></i> NgoList
             </h4>
           </Button>
         </ListItem>
@@ -90,23 +93,23 @@ function Dashboard() {
         {mode === "dashboard" && (
           <div>
             <h1 style={{ textAlign: "center" }}>
-              Period Buddy 🩸 - NGO Dashboard
+              Lotus Hospitals 🩸 - Healthcare organization.
             </h1>
             <br />
             {/* if you want 3 cards in a line */}
             <Grid container alignItems="center" justify="center">
               <Grid item xs={12} sm={4}>
                 <Card className="userscard">
-                  <h2 style={{ textAlign: "center" }}>Students Helped</h2>
+                  <h2 style={{ textAlign: "center" }}>People Helped</h2>
                   <GroupIcon className="groupicon" />
                   <h2 style={{ textAlign: "center" }}>687</h2>
                 </Card>
               </Grid>
               <Grid item xs={12} sm={4}>
                 <Card className="userscard">
-                  <h2 style={{ textAlign: "center" }}>Schools Funded</h2>
-                  <AccountBalanceIcon className="groupicon" />
-                  <h2 style={{ textAlign: "center" }}>5</h2>
+                  <h2 style={{ textAlign: "center" }}>Beds Available</h2>
+                  <LocalHotelIcon className="groupicon" />
+                  <h2 style={{ textAlign: "center" }}>50</h2>
                 </Card>
               </Grid>
               <Grid item xs={12} sm={4}>
@@ -119,10 +122,10 @@ function Dashboard() {
             </Grid>
           </div>
         )}
-        {mode === "schools" && <Schools />}
+        {mode === "ngo" && <NgoList />}
       </div>
     </>
   );
 }
 
-export default Dashboard;
+export default OrganizationDashboard;
