@@ -18,8 +18,9 @@ import ParticularBlog from "./components/ParticularBlog";
 import ParticularEvent from "./components/ParticularEvent";
 import GiftCard from "./components/GiftCard";
 import EventsAttended from "./components/EventsAttended";
-import Maps from "./components/Maps";
-import LeaderBoard from "./components/LeaderBoard";
+import Maps from "./components/Maps"
+import LeaderBoard from "./components/LeaderBoard"
+import InfluencersLeaderboard from "./components/InfluencersLeaderboard";
 // import CoursePage from "./components/CoursePage";
 // import Assignments from "./components/Assignments";
 // import AdminLogin from "./components/AdminLogin";
@@ -50,7 +51,8 @@ function App() {
           navigate("/");
         } else if (command === "maps") {
           navigate("/map");
-        } else if (command === "blogs") {
+        }
+        else if (command === "blogs") {
           navigate("/blogs");
         }
       },
@@ -79,6 +81,7 @@ function App() {
         <Route path="/eventsAttended" element={<EventsAttended />} exact />
         <Route path="/maps" element={<Maps />} exact />
         <Route path="/leaderboard" element={<LeaderBoard />} exact />
+        <Route path="/influencersleaderboard" element={<InfluencersLeaderboard />} exact />
 
         {/* <Route path="/course/:id" component={CoursePage} exact></Route>
       <Route path="/assignments/:id" component={Assignments} exact></Route>
@@ -96,7 +99,7 @@ function App() {
       <Route path="/createCourse" component={CreateCourse} exact></Route>
       <Route path="/createChapter/:id" component={CreateChapter} exact></Route> */}
       </Routes>
-      {/* <Chatbot /> */}
+      <Chatbot />
       {/* <Footer /> */}
       {/* </BrowserRouter> */}
     </>
