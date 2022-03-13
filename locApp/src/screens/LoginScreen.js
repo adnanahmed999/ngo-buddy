@@ -75,9 +75,12 @@ const LoginScreen = ({register = false}) => {
           fontWeight: 'bold',
           fontSize: 20,
         }}
-        onPress={() => {
+        onPress={async () => {
           if (validateEmail(email)) {
-            register ? signUp(name, email, password) : signIn(email, password);
+            if (register) {
+              await signUp(name, email, password);
+              navigation.goBack();
+            } else signIn(email, password);
           }
         }}
       />
