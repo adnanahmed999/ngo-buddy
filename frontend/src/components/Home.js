@@ -60,6 +60,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { Modal, TextField } from "@material-ui/core";
 import Navbar from "./Navbar";
+import { useSpeechSynthesis } from "react-speech-kit";
 // import Card from '@material-ui/core/Card';
 // import CardActions from '@material-ui/core/CardActions';
 // import CardContent from '@material-ui/core/CardContent';
@@ -337,6 +338,25 @@ function Home({ history }) {
     paymentObject.open();
   };
 
+  const { speak } = useSpeechSynthesis();
+
+  // useEffect(() => {
+  //   <div className="group">
+  //                 <button
+  //                   onClick={() =>
+  //                     speak({
+  //                       text: "NGO Buddy is the most Trusted and Transparent Crowdfunding Platform",
+  //                     })
+  //                   }
+  //                 >
+  //                   Speech
+  //                 </button>
+  //               </div>
+  //   speak({
+  //     text: "NGO Buddy is the most Trusted and Transparent Crowdfunding Platform",
+  //   });
+  // });
+
   return (
     <React.Fragment>
       <CssBaseline />
@@ -374,14 +394,14 @@ function Home({ history }) {
                     <AddShoppingCartIcon
                       style={{ marginLeft: "30px", fontSize: "50px" }}
                     />
-                    <h3 style={{ textAlign: "center" }}>Rs. 150Cr.+</h3>
+                    <h3 style={{ textAlign: "center" }}>Rs. 50Cr.+</h3>
                     <p style={{ textAlign: "center" }}>Worth Donations</p>
                   </div>
                   <div style={{ marginRight: "10px" }}>
                     <SupervisorAccountIcon
                       style={{ marginLeft: "30px", fontSize: "50px" }}
                     />
-                    <h3 style={{ textAlign: "center" }}>5 Lakhs +</h3>
+                    <h3 style={{ textAlign: "center" }}>2 Lakhs +</h3>
                     <p style={{ textAlign: "center" }}>Unique Donors</p>
                   </div>
                   <div style={{ marginRight: "10px" }}>
@@ -392,6 +412,7 @@ function Home({ history }) {
                     <p style={{ textAlign: "center" }}>NGOs impacted</p>
                   </div>
                 </div>
+
                 {/* <Typography variant="h6" gutterBottom>
                   Learn How To Build Websites & Apps Write A Code Or Start A
                   Business
@@ -399,24 +420,60 @@ function Home({ history }) {
                 </Typography> */}
                 <br />
                 {!userInfo ? (
-                  <Link
-                    to={"/signup"}
-                    style={{ textDecoration: "none", color: "white" }}
-                  >
+                  <>
+                    <Link
+                      to={"/signup"}
+                      style={{ textDecoration: "none", color: "white" }}
+                    >
+                      <Button
+                        style={{
+                          width: "250px",
+                          borderRadius: "999px",
+                          backgroundColor: "#03ab14",
+                          color: "white",
+                        }}
+                        variant="contained"
+                      >
+                        Join Us
+                      </Button>
+                    </Link>
+
                     <Button
                       style={{
                         width: "250px",
                         borderRadius: "999px",
                         backgroundColor: "#03ab14",
                         color: "white",
+                        marginTop: "20px",
                       }}
                       variant="contained"
+                      onClick={() =>
+                        speak({
+                          text: "NGO Buddy is the most trusted and transparent Crowdfunding Platform. We are grateful to 2 lakh+ donors who have contributed to the social causes of 1000+ NGO's which in total has led to the fundraising of more than 50 crore in donations. ",
+                        })
+                      }
                     >
-                      Join Us
+                      Speak
                     </Button>
-                  </Link>
+                  </>
                 ) : (
-                  ""
+                  <Button
+                    style={{
+                      width: "250px",
+                      borderRadius: "999px",
+                      backgroundColor: "#03ab14",
+                      color: "white",
+                      marginTop: "20px",
+                    }}
+                    variant="contained"
+                    onClick={() =>
+                      speak({
+                        text: "NGO Buddy is the most trusted and transparent Crowdfunding Platform. We are grateful to 2 lakh+ donors who have contributed to the social causes of 1000+ NGO's which in total has led to the fundraising of more than 50 crore in donations. ",
+                      })
+                    }
+                  >
+                    Speak
+                  </Button>
                 )}
               </Grid>
               {/* <ReactFlow elements={elements} /> */}
