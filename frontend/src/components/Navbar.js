@@ -212,19 +212,6 @@ const Header = () => {
                 </div>
                 <Divider />
 
-                {userInfo ? (
-                    <List>
-                        <ListItem button key="Nameofuser">
-                            <ListItemIcon>
-                                <AccountCircleIcon />
-                            </ListItemIcon>
-                            <ListItemText primary={`Welcome, ${userInfo.data.name}`} />
-                        </ListItem>
-                    </List>
-                ) : (
-                    ""
-                )}
-
                 <Link to={"/"} style={{ textDecoration: "none", color: "black" }}>
                     <List>
                         <ListItem button key="Home">
@@ -428,29 +415,7 @@ const Header = () => {
                         </List>
                     </Link>
                 )}
-                {userInfo ? (
-                    <Link to={`/map`} style={{ textDecoration: "none", color: "black" }}>
-                        <List>
-                            <ListItem button disabled={userInfo === null} key="Mapppp">
-                                <ListItemIcon>
-                                    <AccountCircleIcon />
-                                </ListItemIcon>
-                                <ListItemText primary="Mapppp" />
-                            </ListItem>
-                        </List>
-                    </Link>
-                ) : (
-                    <Link to={`/map`} style={{ textDecoration: "none", color: "black" }}>
-                        <List>
-                            <ListItem button disabled key="Mapppp">
-                                <ListItemIcon>
-                                    <AccountCircleIcon />
-                                </ListItemIcon>
-                                <ListItemText primary="Mapppp" />
-                            </ListItem>
-                        </List>
-                    </Link>
-                )}
+
                 {/* {userInfo ? (
                     userInfo.data.isInstructor === true ? (
                         <Link
