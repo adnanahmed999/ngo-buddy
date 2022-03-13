@@ -1,11 +1,11 @@
 const express = require("express");
 
 const {
-    registerUser,
-    userLogin,
-    getUserDetails,
-    updateUserDetails,
-
+  registerUser,
+  userLogin,
+  getUserDetails,
+  updateUserDetails,
+  sendEventRegistrationEmail,
 } = require("../controllers/userControllers");
 
 const { protect } = require("../middlewares/protectedRoutes");
@@ -24,6 +24,6 @@ router.route("/userDetails/:id").get(protect, getUserDetails);
 // User updates his/her own details - Only logged in user
 router.route("/userUpdate/:id").put(protect, updateUserDetails);
 
-
+router.route("/sendEventRegistrationEmail").post(sendEventRegistrationEmail);
 
 module.exports = router;

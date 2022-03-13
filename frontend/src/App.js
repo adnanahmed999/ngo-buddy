@@ -33,6 +33,7 @@ import LeaderBoard from "./components/LeaderBoard";
 // import ProfilePage from "./components/ProfilePage";
 
 import Dashboard from "./components/ngoDashboard/Dashboard";
+import Speech from "./components/Speech";
 
 function App() {
   const navigate = useNavigate();
@@ -79,6 +80,7 @@ function App() {
         <Route path="/eventsAttended" element={<EventsAttended />} exact />
         <Route path="/maps" element={<Maps />} exact />
         <Route path="/leaderboard" element={<LeaderBoard />} exact />
+        <Route path="/speech" element={<Speech />} exact />
 
         {/* <Route path="/course/:id" component={CoursePage} exact></Route>
       <Route path="/assignments/:id" component={Assignments} exact></Route>
