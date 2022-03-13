@@ -34,6 +34,7 @@ import InfluencersLeaderboard from "./components/InfluencersLeaderboard";
 // import ProfilePage from "./components/ProfilePage";
 
 import Dashboard from "./components/ngoDashboard/Dashboard";
+import OrganizationDashboard from "./components/ngoDashboard/OrganizationDashboard";
 
 function App() {
   const navigate = useNavigate();
@@ -64,6 +65,7 @@ function App() {
       {/* <Navbar component={Navbar} style={{ marginBottom: "100px" }} /> */}
       <Routes>
         <Route path="/dashboard" element={<Dashboard />} exact></Route>
+        <Route path="/organization" element={<OrganizationDashboard />} exact></Route>
         <Route path="/" element={<Home />} exact></Route>
         <Route path="/hin" element={<HindiHome />} exact></Route>
         <Route path="/signin" element={<Signin />} exact></Route>
