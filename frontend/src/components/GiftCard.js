@@ -408,33 +408,33 @@ const GiftCard = () => {
                       <div style={{ display: "flex" }}>
                         <Button
                           onClick={() => {
-                            setGiftCardValue(500);
+                            setGiftCardValue(499);
                           }}
                           style={{ marginRight: "10px" }}
                           variant="contained"
                           color="primary"
                         >
-                          Rs.&nbsp;500
+                          Rs.&nbsp;499
                         </Button>
                         <Button
                           onClick={() => {
-                            setGiftCardValue(1000);
+                            setGiftCardValue(1499);
                           }}
                           style={{ marginRight: "10px" }}
                           variant="contained"
                           color="primary"
                         >
-                          Rs.&nbsp;1000
+                          Rs.&nbsp;1499
                         </Button>
                         <Button
                           onClick={() => {
-                            setGiftCardValue(1500);
+                            setGiftCardValue(2499);
                           }}
                           style={{ marginRight: "10px" }}
                           variant="contained"
                           color="primary"
                         >
-                          Rs.&nbsp;1500
+                          Rs.&nbsp;2499
                         </Button>
                       </div>
                       <div
@@ -451,8 +451,6 @@ const GiftCard = () => {
                             label="Currency"
                           >
                             <MenuItem value={10}>INR</MenuItem>
-                            <MenuItem value={20}>USD</MenuItem>
-                            <MenuItem value={30}>AUS</MenuItem>
                           </Select>
                         </div>
                         <div>

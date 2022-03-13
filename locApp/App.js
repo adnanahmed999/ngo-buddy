@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {StyleSheet, SafeAreaView, StatusBar, LogBox} from 'react-native';
 import AuthProvider from './src/auth/AuthProvider';
 import {
@@ -9,6 +9,7 @@ import {
 import MainTabScreen from './src/controllers/MainTabScreen';
 import {NavigationContainer} from '@react-navigation/native';
 import {colors} from 'react-native-elements';
+import SplashScreen from './src/screens/SplashScreen';
 //import {AlanView} from '@alan-ai/alan-sdk-react-native';
 
 export default function App() {
@@ -18,6 +19,7 @@ export default function App() {
   // const subscription = alanEventEmitter.addListener('command', data => {
   //   console.log(`got command event ${JSON.stringify(data)}`);
   // });
+  const [showSplash, setShowSplash] = useState(true);
   const fontConfig = {
     default: {
       regular: {
@@ -57,6 +59,12 @@ export default function App() {
     fonts: configureFonts(fontConfig),
   };
 
+  useEffect(() => {
+    setTimeout(() => {
+      setShowSplash(false);
+    }, 2500);
+  }, []);
+
   // useEffect(() => {
   //   return subscription.remove();
   // }, []);
@@ -71,7 +79,7 @@ export default function App() {
       <AuthProvider>
         <PaperProvider theme={theme}>
           <NavigationContainer>
-            <MainTabScreen />
+            {showSplash ? <SplashScreen /> : <MainTabScreen />}
             {/* <AlanView
               projectid={
                 'cfdac5b36d0a78de9cd6709b0a7e592e2e956eca572e1d8b807a3e2338fdd0dc/stage'

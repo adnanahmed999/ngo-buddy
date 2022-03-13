@@ -766,6 +766,8 @@ import {
 } from "react-share";
 import EventCard from "./EventCard";
 import alanBtn from "@alan-ai/alan-sdk-web";
+import { useSpeechSynthesis } from "react-speech-kit";
+
 // import Tab from '@mui/material/Tab';
 // import TabContext from '@mui/lab/TabContext';
 // import TabList from '@mui/lab/TabList';
@@ -1055,6 +1057,8 @@ function Home({ history }) {
     paymentObject.open();
   };
 
+  const { speak } = useSpeechSynthesis();
+
   return (
     <React.Fragment>
       <CssBaseline />
@@ -1112,24 +1116,59 @@ function Home({ history }) {
                 </div>
                 <br />
                 {!userInfo ? (
-                  <Link
-                    to={"/signup"}
-                    style={{ textDecoration: "none", color: "white" }}
-                  >
+                  <>
+                    <Link
+                      to={"/signup"}
+                      style={{ textDecoration: "none", color: "white" }}
+                    >
+                      <Button
+                        style={{
+                          width: "250px",
+                          borderRadius: "999px",
+                          backgroundColor: "#03ab14",
+                          color: "white",
+                        }}
+                        variant="contained"
+                      >
+                        हमसे जुड़ें
+                      </Button>
+                    </Link>
                     <Button
                       style={{
                         width: "250px",
                         borderRadius: "999px",
                         backgroundColor: "#03ab14",
                         color: "white",
+                        marginTop: "20px",
                       }}
                       variant="contained"
+                      onClick={() =>
+                        speak({
+                          text: "NGO Buddy is the most trusted and transparent Crowdfunding Platform. We are grateful to 2 lakh+ donors who have contributed to the social causes of 1000+ NGO's which in total has led to the fundraising of more than 50 crore in donations. ",
+                        })
+                      }
                     >
-                      हमसे जुड़ें
+                      बोलो
                     </Button>
-                  </Link>
+                  </>
                 ) : (
-                  ""
+                  <Button
+                    style={{
+                      width: "250px",
+                      borderRadius: "999px",
+                      backgroundColor: "#03ab14",
+                      color: "white",
+                      marginTop: "20px",
+                    }}
+                    variant="contained"
+                    onClick={() =>
+                      speak({
+                        text: "NGO Buddy is the most trusted and transparent Crowdfunding Platform. We are grateful to 2 lakh+ donors who have contributed to the social causes of 1000+ NGO's which in total has led to the fundraising of more than 50 crore in donations. ",
+                      })
+                    }
+                  >
+                    बोलो
+                  </Button>
                 )}
               </Grid>
               {/* <ReactFlow elements={elements} /> */}

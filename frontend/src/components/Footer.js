@@ -147,7 +147,7 @@ const Footer = () => {
                   textAlign="center"
                 >
                   <Typography variant="h6" align="center">
-                    ©Copyright 2022 AppName
+                    ©Copyright 2022 NGO Buddy
                   </Typography>
                 </Grid>
               </Grid>

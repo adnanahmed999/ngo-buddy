@@ -9,10 +9,35 @@ import {
   Typography,
 } from "@material-ui/core";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
+import Swal from "sweetalert2";
+import axios from "axios";
 
 export default function RegisterEvent() {
   const [subEvents, setSubEvents] = useState([]);
   const [currentEvent, setCurrentEvent] = useState("");
+
+  const handleSubmit = async () => {
+    const headers = {
+      "Content-Type": "application/json",
+    };
+
+    const { data } = await axios.post("/user/sendEventRegistrationEmail", {
+      headers,
+    });
+    // console.log(data);
+    if (data.success === true) {
+      console.log("Success");
+      Swal.fire(
+        "Email Alert is sent",
+        `Event Name: Tree Plantation Drive`,
+        "success"
+      );
+    } else {
+      console.log("Success=true not returned");
+      Swal.fire(`Email Alert could not be sent`, `Please try again.`, "error");
+    }
+  };
+
   return (
     <div className="App">
       {/* <Typography gutterBottom variant="h3" align="center">
@@ -150,7 +175,12 @@ export default function RegisterEvent() {
                   </Button>
                 </Grid>
                 <Grid item xs={12}>
-                  <Button type="submit" variant="contained" color="primary">
+                  <Button
+                    type="submit"
+                    variant="contained"
+                    color="primary"
+                    onClick={handleSubmit}
+                  >
                     Submit
                   </Button>
                 </Grid>

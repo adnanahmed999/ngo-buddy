@@ -11,20 +11,11 @@ import Header from '../components/Header';
 
 const ProfileScreen = () => {
   const {colors} = useTheme();
-  const {
-    signUp,
-    isLoading,
-    setIsLoading,
-    currentUser,
-    signOut,
-    setCurrentUser,
-    isSignedIn,
-  } = useContext(AuthContext);
+  const {isLoading, currentUser, signOut, isSignedIn, setCurrentUser} =
+    useContext(AuthContext);
   const [email, setEmail] = useState(currentUser.email || '');
   const [name, setName] = useState(currentUser.name || '');
-  const [image, setImage] = useState('');
-
-  const navigation = useNavigation();
+  const [image, setImage] = useState(currentUser.profile || '');
 
   const pickImage = () => {
     ImageCropPicker.openPicker({
@@ -33,6 +24,9 @@ const ProfileScreen = () => {
       cropping: true,
     }).then(image => {
       setImage(image.path);
+      setCurrentUser(c => {
+        return {...c, profile: image.path};
+      });
     });
   };
   // const onChange = (event, selectedDate) => {
@@ -123,9 +117,12 @@ const ProfileScreen = () => {
         <Button
           title={'Done'}
           style={'solid'}
-          onPress={() =>
-            ToastAndroid.show('Profile Details updated !!', ToastAndroid.SHORT)
-          }
+          onPress={() => {
+            setCurrentUser(c => {
+              return {...c, profile: image, name, email};
+            });
+            ToastAndroid.show('Profile Details updated !!', ToastAndroid.SHORT);
+          }}
           loading={isLoading}
           disabled={isLoading}
           buttonStyle={{
@@ -163,11 +160,5 @@ const ProfileScreen = () => {
     <LoginScreen />
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
 
 export default ProfileScreen;

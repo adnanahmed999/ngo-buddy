@@ -30,21 +30,21 @@ const HomeScreen = () => {
       name: "Neelam's Life's Mission Is To Give Abandoned People With Disabilities Love & Respect, Join Her",
       description:
         "Neelam's Life's Mission Is To Give Abandoned People With Disabilities Love & Respect, Join Her Neelam's Life's Mission Is To Give Abandoned People With Disabilities Love & Respect, Join Her",
-      image:
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9HMDplkER-A9s2Z1V8Ay79sIs3MPVw9V-Zw&usqp=CAU',
+      image: 'https://thelogicalindian.com/h-upload/2020/01/27/152340-10-1.jpg',
       createdBy: 'Lorem Ipsum',
-      targetAmount: 1000000,
-      collectedAmount: 900000,
+      targetAmount: 9000000,
+      collectedAmount: 700000,
       event_date: new Date().toString(),
-      contributors: 100,
+      contributors: 50,
       subEvents: ['Intro', 'Do-work', 'Come Back'],
-      targetVolunteers: 100,
-      registeredVolunteers: 10,
+      targetVolunteers: 80,
+      registeredVolunteers: 7,
       address: 'test building , Test Lane , test city :- 8797383 ',
       latitude: 19.1061636,
       longitude: 72.8369622,
     },
   ]);
+
   return (
     <View style={styles.container}>
       <Header title={'Events'} />

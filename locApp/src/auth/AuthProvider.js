@@ -24,7 +24,8 @@ const AuthProvider = ({children}) => {
             name,
             email,
             pEvents: [],
-            profile: 'https://pbs.twimg.com/media/D8dDZukXUAAXLdY.jpg',
+            profile:
+              'https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
           });
           await new Promise(resolve => setTimeout(resolve, 2000));
           setIsSignedIn(true);
@@ -36,7 +37,9 @@ const AuthProvider = ({children}) => {
             _id: 1,
             name: 'Test Account',
             email: username,
-            profile: 'https://pbs.twimg.com/media/D8dDZukXUAAXLdY.jpg',
+            name: 'Test Account',
+            profile:
+              'https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
             pEvents: [],
           });
           await new Promise(resolve => setTimeout(resolve, 1100));
