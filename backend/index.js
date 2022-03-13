@@ -3,7 +3,7 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 const connectDB = require("./config/config");
 // const Pusher = require('pusher');
-// const generatePDF = require("./generatePdf");
+const generatePDF = require("./generatePdf");
 var axios = require("axios");
 
 // Routes
@@ -56,14 +56,14 @@ const PORT = 8080 || process.env.PORT;
 // });
 
 // Certificate
-app.post("/getCertificate", async (req, res) => {
+app.post("/sendCertificate", async (req, res) => {
   // res.send("<h1>Welcome to Full Stack Simplified</h1>");
   // res.download("output.pdf");
   try {
-    const { name, email, course } = req.body;
-    console.log(name, email, course);
-    generatePDF(name, email, course);
-    res.download("CertificateOfCompletion.pdf");
+    const { name, email, event, date } = req.body;
+    console.log(name, email, event, date);
+    generatePDF(name, email, event, date);
+    res.download(`name.pdf`);
     res.status(200).json({
       success: true,
       data: "Successfull",

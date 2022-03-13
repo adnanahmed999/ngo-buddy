@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Signin from "./components/Signin";
 import Signup from "./components/Signup";
 import Home from "./components/Home";
+import HindiHome from "./components/HindiHome";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ProfilePage from "./components/ProfilePage";
@@ -17,6 +18,8 @@ import ParticularBlog from "./components/ParticularBlog";
 import ParticularEvent from "./components/ParticularEvent";
 import GiftCard from "./components/GiftCard";
 import EventsAttended from "./components/EventsAttended";
+import Maps from "./components/Maps";
+import LeaderBoard from "./components/LeaderBoard";
 // import CoursePage from "./components/CoursePage";
 // import Assignments from "./components/Assignments";
 // import AdminLogin from "./components/AdminLogin";
@@ -45,6 +48,10 @@ function App() {
           navigate("/signup");
         } else if (command === "home") {
           navigate("/");
+        } else if (command === "maps") {
+          navigate("/map");
+        } else if (command === "blogs") {
+          navigate("/blogs");
         }
       },
     });
@@ -56,6 +63,7 @@ function App() {
       <Routes>
         <Route path="/dashboard" element={<Dashboard />} exact></Route>
         <Route path="/" element={<Home />} exact></Route>
+        <Route path="/hin" element={<HindiHome />} exact></Route>
         <Route path="/signin" element={<Signin />} exact></Route>
         <Route path="/signup" element={<Signup />} exact></Route>
         <Route path="/myProfile" element={<ProfilePage />} exact></Route>
@@ -70,6 +78,8 @@ function App() {
         />
         <Route path="/giftcard" element={<GiftCard />} exact />
         <Route path="/eventsAttended" element={<EventsAttended />} exact />
+        <Route path="/maps" element={<Maps />} exact />
+        <Route path="/leaderboard" element={<LeaderBoard />} exact />
 
         {/* <Route path="/course/:id" component={CoursePage} exact></Route>
       <Route path="/assignments/:id" component={Assignments} exact></Route>

@@ -122,7 +122,6 @@ function Dashboard() {
             }}
           >
             <MenuIcon />
-            More
           </Button>
           <Button
             style={{ textDecoration: "none", color: "white" }}
