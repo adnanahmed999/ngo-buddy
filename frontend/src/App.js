@@ -52,7 +52,7 @@ function App() {
   return (
     // <BrowserRouter>
     <>
-      <Navbar component={Navbar} style={{ marginBottom: "100px" }} />
+      {/* <Navbar component={Navbar} style={{ marginBottom: "100px" }} /> */}
       <Routes>
         <Route path="/dashboard" element={<Dashboard />} exact></Route>
         <Route path="/" element={<Home />} exact></Route>

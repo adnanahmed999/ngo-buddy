@@ -15,6 +15,8 @@ import DonationsRecieved from "./DonationsRecieved";
 import DonationsRequested from "./DonationsRequested";
 import RegisterEvent from "./RegisterEvent";
 import DiscussionForum from "./DiscussionForum";
+import OngoingEvents from "./OngoingEvents";
+import VideoCall from "../videoCall/VideoCall";
 // import
 import "./Dashboard.css";
 import "../../App.css";
@@ -85,6 +87,20 @@ function Dashboard() {
             </h4>
           </Button>
         </ListItem>
+        <ListItem>
+          <Button onClick={() => setMode("ongoingEvent")}>
+            <h4>
+              <i className="fa fa-play-circle"></i> Ongoing Event
+            </h4>
+          </Button>
+        </ListItem>
+        {/* <ListItem>
+          <Button onClick={() => setMode("videoCall")}>
+            <h4>
+              <i className="fa fa-play-circle"></i> Video Call
+            </h4>
+          </Button>
+        </ListItem> */}
       </List>
     </div>
   );
@@ -164,6 +180,8 @@ function Dashboard() {
         {mode === "donationsRecieved" && <DonationsRecieved />}
         {mode === "donationsRequested" && <DonationsRequested />}
         {mode === "discussionForum" && <DiscussionForum />}
+        {mode === "ongoingEvent" && <OngoingEvents />}
+        {/* {mode === "videoCall" && <VideoCall />} */}
       </div>
     </>
   );
