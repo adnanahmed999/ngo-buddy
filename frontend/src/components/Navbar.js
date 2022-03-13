@@ -24,6 +24,10 @@ import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
 import CardGiftcardIcon from '@material-ui/icons/CardGiftcard';
 import ExploreIcon from '@material-ui/icons/Explore';
 import EqualizerIcon from '@material-ui/icons/Equalizer';
+import { InputLabel } from "@material-ui/core";
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 // import CodeIcon from "@mui/icons-material/Code";
 // import DeveloperModeIcon from '@mui/icons-material/DeveloperMode';
 
@@ -97,7 +101,6 @@ const Header = () => {
     // const handleClose = () => {
     //   setAnchorEl(null);
     // };
-
     const userLogin = useSelector((state) => state.userLogin);
     const { userInfo } = userLogin;
 
@@ -111,6 +114,10 @@ const Header = () => {
             dispatch(logout());
         }
         console.log("logout");
+    };
+    const handleChange = (event) => {
+        // setAge(event.target.value);
+        console.log("change language")
     };
 
     return (
@@ -137,6 +144,19 @@ const Header = () => {
                             App Name
                         </Link>
                     </Typography>
+                    {/* <InputLabel id="demo-simple-select-label">Language Default(English)</InputLabel> */}
+                    <Select
+                        style={{ marginRight: "20px" }}
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        label="Age"
+                        defaultValue="English"
+                        onChange={handleChange}
+                    >
+
+                        <MenuItem value={10} onClick={() => { navigate("/") }}>English</MenuItem>
+                        <MenuItem value={20} onClick={() => { navigate("/hin") }}>हिंदी</MenuItem>
+                    </Select>
                     {userInfo ? (
                         <>
                             {/* <p style={{ color: "black" }}>Welcome,</p> */}
@@ -255,7 +275,7 @@ const Header = () => {
                     </List>
                 </Link>
                 <Link
-                    to={`/maps`}
+                    to={`/map`}
                     style={{ textDecoration: "none", color: "black" }}
                 >
                     <List>
@@ -264,6 +284,19 @@ const Header = () => {
                                 <ExploreIcon />
                             </ListItemIcon>
                             <ListItemText primary="Maps" />
+                        </ListItem>
+                    </List>
+                </Link>
+                <Link
+                    to={`/influencersLeaderboard`}
+                    style={{ textDecoration: "none", color: "black" }}
+                >
+                    <List>
+                        <ListItem button key="Influencers LeaderBoard">
+                            <ListItemIcon>
+                                <EqualizerIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Influencers LeaderBoard" />
                         </ListItem>
                     </List>
                 </Link>
@@ -280,6 +313,7 @@ const Header = () => {
                         </ListItem>
                     </List>
                 </Link>
+
                 {/* {userInfo ? (
                     userInfo.data.isInstructor === true ? (
                         <Link

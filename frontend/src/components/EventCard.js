@@ -77,17 +77,21 @@ const EventCard = (props) => {
                         <Link to="/" style={{ textDecoration: "none", color: "white" }}>
                             <Button
                                 onClick={handleOpenVolunteer}
+                                color="primary"
+                                variant="contained"
                                 style={{
-                                    marginLeft: "55px", margin: "5px", backgroundColor: "#03ab14",
+                                    marginLeft: "55px", margin: "5px",
                                     // backgroundImage: "linear-gradient(to right, yellow , red)", 
-                                    color: "white"
+                                    color: "white",
+                                    borderRadius: "999px"
                                 }}><b>Volunteer</b></Button></Link>
                         {/* <Button style={{ borderRadius: "30px", backgroundColor: "#dbf2ff", margin: "5px" }}><QueryBuilderIcon style={{ marginRight: "5px" }} />  9 days left</Button> */}
                         <Link to="/" style={{ textDecoration: "none", color: "white" }}>
                             <Button style={{
                                 marginLeft: "55px", margin: "5px", backgroundColor: "#03ab14",
                                 // backgroundImage: "linear-gradient(to right, yellow , red)", 
-                                color: "white"
+                                color: "white",
+                                borderRadius: "999px"
                             }}><b>Donate Now</b></Button></Link>
                         <br />
                     </div>
@@ -118,11 +122,14 @@ const EventCard = (props) => {
                         </div>
                         {/* <Button style={{ borderRadius: "30px", backgroundColor: "#dbf2ff", margin: "5px" }}><QueryBuilderIcon style={{ marginRight: "5px" }} />  9 days left</Button> */}
                         <Link to="/event/particularEvent" style={{ textDecoration: "none", color: "white" }}>
-                            <Button style={{
-                                marginLeft: "55px", margin: "5px", backgroundColor: "orange",
-                                // backgroundImage: "linear-gradient(to right, yellow , red)", 
-                                color: "white"
-                            }}><b>Read More</b></Button></Link>
+                            <Button
+
+                                style={{
+                                    marginLeft: "55px", marginTop: "5px", margin: "5px", backgroundColor: "orange",
+                                    // backgroundImage: "linear-gradient(to right, yellow , red)", 
+                                    color: "white",
+                                    borderRadius: "999px"
+                                }}><b>Read More</b></Button></Link>
                         <br />
                     </div>
                 </div>

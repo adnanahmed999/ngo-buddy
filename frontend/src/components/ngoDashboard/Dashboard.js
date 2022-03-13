@@ -18,6 +18,9 @@ import DiscussionForum from "./DiscussionForum";
 // import
 import "./Dashboard.css";
 import "../../App.css";
+import CanvasJSReact from './canvasjs.react';
+var CanvasJS = CanvasJSReact.CanvasJS;
+var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 const useStyles = makeStyles({
   paper: {
@@ -26,6 +29,98 @@ const useStyles = makeStyles({
 });
 
 function Dashboard() {
+  const pieoptions = {
+    exportEnabled: true,
+    animationEnabled: true,
+    title: {
+      text: "Event Donations"
+    },
+    data: [{
+      type: "pie",
+      startAngle: 75,
+      toolTipContent: "<b>{label}</b>: {y}%",
+      showInLegend: "true",
+      legendText: "{label}",
+      indexLabelFontSize: 16,
+      indexLabel: "{label} - {y}%",
+      dataPoints: [
+        { y: 18, label: "Beach Cleaning" },
+        { y: 49, label: "Blood Donation" },
+        { y: 9, label: "River Rejuvenation" },
+        { y: 5, label: "Teach for India" },
+        { y: 19, label: "Blanket Donation" }
+      ]
+    }]
+  }
+  const options = {
+    animationEnabled: true,
+    title: {
+      text: "Funding vs Donation"
+    },
+    axisY: {
+      title: "Funding"
+    },
+    toolTip: {
+      shared: true
+    },
+    data: [{
+      type: "spline",
+      name: "2019",
+      showInLegend: true,
+      dataPoints: [
+        { y: 155, label: "Jan" },
+        { y: 150, label: "Feb" },
+        { y: 152, label: "Mar" },
+        { y: 148, label: "Apr" },
+        { y: 142, label: "May" },
+        { y: 150, label: "Jun" },
+        { y: 146, label: "Jul" },
+        { y: 149, label: "Aug" },
+        { y: 153, label: "Sept" },
+        { y: 158, label: "Oct" },
+        { y: 154, label: "Nov" },
+        { y: 150, label: "Dec" }
+      ]
+    },
+    {
+      type: "spline",
+      name: "2020",
+      showInLegend: true,
+      dataPoints: [
+        { y: 172, label: "Jan" },
+        { y: 173, label: "Feb" },
+        { y: 175, label: "Mar" },
+        { y: 172, label: "Apr" },
+        { y: 162, label: "May" },
+        { y: 165, label: "Jun" },
+        { y: 172, label: "Jul" },
+        { y: 168, label: "Aug" },
+        { y: 175, label: "Sept" },
+        { y: 170, label: "Oct" },
+        { y: 165, label: "Nov" },
+        { y: 169, label: "Dec" }
+      ]
+    },
+    {
+      type: "spline",
+      name: "2021",
+      showInLegend: true,
+      dataPoints: [
+        { y: 132, label: "Jan" },
+        { y: 133, label: "Feb" },
+        { y: 135, label: "Mar" },
+        { y: 142, label: "Apr" },
+        { y: 172, label: "May" },
+        { y: 115, label: "Jun" },
+        { y: 132, label: "Jul" },
+        { y: 148, label: "Aug" },
+        { y: 125, label: "Sept" },
+        { y: 130, label: "Oct" },
+        { y: 165, label: "Nov" },
+        { y: 139, label: "Dec" }
+      ]
+    }]
+  }
   const [open, setOpen] = useState(false);
   const [mode, setMode] = useState("dashboard");
   const classes = useStyles();
@@ -156,6 +251,15 @@ function Dashboard() {
                 </Card>
               </Grid>
             </Grid>
+            <div style={{ margin: "20px", flexWrap: "nowrap", display: "flex", justifyContent: "space-around" }}>
+              <div style={{ width: "500px" }}>
+                <CanvasJSChart options={options}
+                /* onRef={ref => this.chart = ref} */
+                /></div>
+              <div style={{ width: "500px" }}>
+                <CanvasJSChart options={pieoptions} />
+              </div>
+            </div>
           </div>
         )}
         {mode === "schools" && <Schools />}

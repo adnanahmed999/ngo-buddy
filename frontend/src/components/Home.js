@@ -532,7 +532,7 @@ function Home({ history }) {
                         }}
                       >
                         {" "}
-                        De paise de
+                        Pay Amount
                       </Button>
                     </div>
                   </Modal>

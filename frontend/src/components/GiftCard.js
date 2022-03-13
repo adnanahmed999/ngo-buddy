@@ -294,9 +294,9 @@ const GiftCard = () => {
                                     <Card style={{ position: "relative", right: "40px", borderRadius: "30px", margin: "30px", marginRight: "100px", padding: "30px", boxShadow: "5px 5px 25px 5px black" }}>
                                         <h2>Gift Card value : Rs.{giftCardValue}</h2>
                                         <div style={{ display: "flex" }}>
-                                            <Button onClick={() => { setGiftCardValue(500) }} style={{ marginRight: "10px" }} variant="contained" color="primary">Rs.&nbsp;500</Button>
-                                            <Button onClick={() => { setGiftCardValue(1000) }} style={{ marginRight: "10px" }} variant="contained" color="primary">Rs.&nbsp;1000</Button>
-                                            <Button onClick={() => { setGiftCardValue(1500) }} style={{ marginRight: "10px" }} variant="contained" color="primary">Rs.&nbsp;1500</Button>
+                                            <Button onClick={() => { setGiftCardValue(499) }} style={{ marginRight: "10px" }} variant="contained" color="primary">Rs.&nbsp;499</Button>
+                                            <Button onClick={() => { setGiftCardValue(999) }} style={{ marginRight: "10px" }} variant="contained" color="primary">Rs.&nbsp;999</Button>
+                                            <Button onClick={() => { setGiftCardValue(1499) }} style={{ marginRight: "10px" }} variant="contained" color="primary">Rs.&nbsp;1499</Button>
                                         </div>
                                         <div style={{ display: "flex", justifyContent: "space-between" }}>
                                             <div>
